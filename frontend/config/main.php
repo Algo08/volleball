@@ -11,7 +11,6 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
-    'homeUrl' => '/volleybol',
     'components' => [
         'socialShare' => [
             'class' => \ymaker\social\share\configurators\Configurator::class,
@@ -37,7 +36,7 @@ return [
             ],
         ],
         'request' => [
-            'baseUrl'=>'/volleybol',
+            'baseUrl'=>'',
             'csrfParam' => '_csrf-frontend',
         ],
         'user' => [
