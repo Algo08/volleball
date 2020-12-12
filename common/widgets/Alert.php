@@ -2,7 +2,7 @@
 namespace common\widgets;
 
 use Yii;
-use yii\bootstrap4\Widget;
+use yii\bootstrap\Widget;
 
 /**
  * Alert widget renders a message from session flash. All flash messages are displayed
@@ -60,7 +60,7 @@ class Alert extends Widget
             }
 
             foreach ((array) $flash as $i => $message) {
-                echo \yii\bootstrap4\Alert::widget([
+                echo \yii\bootstrap\Alert::widget([
                     'body' => $message,
                     'closeButton' => $this->closeButton,
                     'options' => array_merge($this->options, [
