@@ -80,7 +80,7 @@ label {
 
 .logo h1 a {
     color: #00dcb0;
-    font-size: 53px;
+    font-size: 40px;
     text-decoration: none;
     font-weight: 600;
     letter-spacing: 2px;
@@ -152,14 +152,14 @@ label {
 .navbar-nav {
     float: right;
     margin: 0;
-    width: 62%;
+    width: 70%;
     text-align: center;
     margin-top: 26px;
 }
 
 .navbar-nav>li {
     float: left;
-    width: 16.6%;
+    width: 14.2%;
 }
 
 .header-left {
@@ -168,7 +168,7 @@ label {
 
 /* Overline From Center */
 
-.hvr-overline-from-center {
+.hvr-overline-from-center, .head-list.dropdown-menu.with-arrow .active {
     display: inline-block;
     vertical-align: middle;
     -webkit-transform: translateZ(0);
@@ -181,7 +181,7 @@ label {
     overflow: hidden;
 }
 
-.hvr-overline-from-center:before {
+.hvr-overline-from-center:before, .head-list.dropdown-menu.with-arrow .active:before {
     content: "";
     position: absolute;
     z-index: -1;
@@ -198,11 +198,22 @@ label {
     transition-timing-function: ease-out;
 }
 
+
 .hvr-overline-from-center:hover:before,
 .hvr-overline-from-center:focus:before,
-.hvr-overline-from-center:active:before {
+.hvr-overline-from-center:active:before,
+.head-list.dropdown-menu.with-arrow .active:hover:before,
+.head-list.dropdown-menu.with-arrow .active:focus:before,
+.head-list.dropdown-menu.with-arrow .active:active:before {
     left: 0;
     right: 0;
+}
+.head-list.dropdown-menu.with-arrow .active{
+    padding-bottom: 10px;
+    width: 100%;
+}
+.head-list.dropdown-menu.with-arrow .active:hover{
+    background-color: white;
 }
 
 /*-- //navigaion --*/

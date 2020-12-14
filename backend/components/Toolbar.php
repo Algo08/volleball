@@ -13,9 +13,10 @@ class Toolbar extends Widget
 {
     public function run()
     {
-        $appilations = \common\models\Appilation::find()->where(['readed'=>0])->all();
-        $countMess = count($appilations);
-        return $this->render('toolbar',['appilations'=>$appilations,'countMess'=>$countMess]);
+//        $appilations = \common\models\Appilation::find()->where(['readed'=>0])->all();
+//        $countMess = count($appilations);
+        return $this->render('toolbar');
+//        return $this->render('toolbar',['appilations'=>$appilations,'countMess'=>$countMess]);
     }
 
 }

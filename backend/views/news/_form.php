@@ -27,6 +27,7 @@ use yii\widgets\ActiveForm;
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <?= $form->field($model, 'text_head_uz')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'text_part_uz')->textInput(['maxlength' => true]) ?>
 
             <?= $form->field($model, 'text_body_uz')->widget(Summernote::className(), [
                 'clientOptions' => [
@@ -35,6 +36,7 @@ use yii\widgets\ActiveForm;
         </div>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <?= $form->field($model, 'text_head_ru')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'text_part_ru')->textInput(['maxlength' => true]) ?>
 
             <?= $form->field($model, 'text_body_ru')->widget(Summernote::className(), [
                 'clientOptions' => [
@@ -43,6 +45,7 @@ use yii\widgets\ActiveForm;
         </div>
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
             <?= $form->field($model, 'text_head_en')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'text_part_en')->textInput(['maxlength' => true]) ?>
 
             <?= $form->field($model, 'text_body_en')->widget(Summernote::className(), [
                 'clientOptions' => [
@@ -59,12 +62,12 @@ use yii\widgets\ActiveForm;
                     'format' => 'jpeg',
                     'clientOptions' => [
                         'viewport'=>[
-                            'width'=>330,
-                            'height' => 270,
+                            'width'=>350,
+                            'height' => 197,
                         ],
                         'boundary'=>[
                             'width'=>400,
-                            'height' => 350
+                            'height' => 240
                         ],
                         'enableExif'=>'true',
                     ],

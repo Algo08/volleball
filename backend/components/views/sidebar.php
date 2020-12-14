@@ -29,61 +29,9 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        O`rganish
+        Asosiy
     </div>
 
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-question"></i>
-            <span>Testlar</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="<?=\yii\helpers\Url::to('@web/section')?>">Bo`limlar</a>
-                <a class="collapse-item" href="<?=\yii\helpers\Url::to('@web/test/index')?>">Test <sup>uz</sup></a>
-                <a class="collapse-item" href="<?=\yii\helpers\Url::to('@web/test/index-ru')?>">Test <sup>ru</sup></a>
-            </div>
-        </div>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="<?=\yii\helpers\Url::to('@web/tariffs')?>">
-            <i class="fas fa-fw fa-money-check-alt"></i>
-            <span>Tariflar</span></a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="<?=\yii\helpers\Url::to('@web/books')?>">
-            <i class="fas fa-fw fa-book"></i>
-            <span>Darsliklar</span></a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link" href="<?=\yii\helpers\Url::to('@web/video')?>">
-            <i class="fas fa-fw fa-video"></i>
-            <span>Video darsliklar</span></a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link" href="<?=\yii\helpers\Url::to('@web/pictures')?>">
-            <i class="far fa-fw fa-images"></i>
-            <span>Rasmlar</span></a>
-    </li>
-
-    <!-- Nav Item - Tables -->
-    <li class="nav-item">
-        <a class="nav-link" href="<?=\yii\helpers\Url::to('@web/user')?>">
-            <i class="fas fa-fw fa-users"></i>
-            <span>Foydalanuvchilar</span></a>
-    </li>
-
-
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        O'quv kursi haqida
-    </div>
 
     <li class="nav-item">
         <a class="nav-link" href="<?=\yii\helpers\Url::to('@web/news')?>">
@@ -92,16 +40,27 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="<?=\yii\helpers\Url::to('@web/comments')?>">
-            <i class="fas fa-fw fa-comment"></i>
-            <span>Izohlar</span></a>
+        <a class="nav-link" href="<?=\yii\helpers\Url::to('@web/video')?>">
+            <i class="fas fa-fw fa-video"></i>
+            <span>Videolar</span></a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="<?=\yii\helpers\Url::to('@web/today')?>">
-            <i class="fas fa-fw fa-calendar"></i>
-            <span>Bugungi kun</span></a>
+        <a class="nav-link" href="<?=\yii\helpers\Url::to('@web/pictures')?>">
+            <i class="far fa-fw fa-images"></i>
+            <span>Rasmlar</span></a>
     </li>
+
+
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Biz haqimizda
+    </div>
+
 
     <li class="nav-item">
         <a class="nav-link" href="<?=\yii\helpers\Url::to('@web/about')?>">

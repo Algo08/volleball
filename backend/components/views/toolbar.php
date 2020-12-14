@@ -1,6 +1,5 @@
 <?php
 /**
- * @var \common\models\appilation[] $appilations
  * @var int $countMess
  */
 
@@ -98,7 +97,7 @@ use yii\bootstrap4\Html;
         </li>
 
         <!-- Nav Item - Messages -->
-        <li class="nav-item dropdown no-arrow mx-1">
+        <?php /** <li class="nav-item dropdown no-arrow mx-1">
             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-envelope fa-fw"></i>
                 <!-- Counter - Messages -->
@@ -124,6 +123,7 @@ use yii\bootstrap4\Html;
                 <a class="dropdown-item text-center small text-gray-500" href="<?=\yii\helpers\Url::to('@web/appilations/view')?>">Read More Messages</a>
             </div>
         </li>
+        **/?>
 
         <div class="topbar-divider d-none d-sm-block"></div>
 

@@ -107,7 +107,7 @@ $this->title = 'My Yii Application';
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                    <?= $this->renderAjax('bar_chart')?>
+                    <?php /**$this->renderAjax('bar_chart')**/?>
                 </div>
             </div>
         </div>
@@ -133,7 +133,7 @@ $this->title = 'My Yii Application';
             </div>
             <!-- Card Body -->
             <div class="card-body">
-                <?= $this->renderAjax('pie_chart')?>
+                <?php /** $this->renderAjax('pie_chart')**/?>
             </div>
         </div>
     </div>

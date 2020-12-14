@@ -89,8 +89,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-
-        return $this->render('index');
+        $news = News::find()->orderBy(['create_date'=>SORT_DESC])->limit(3)->all();
+        return $this->render('index',['news'=>$news]);
     }
 
     /**

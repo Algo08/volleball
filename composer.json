@@ -21,7 +21,8 @@
         "cinghie/yii2-multilanguage": "*",
         "developit/yii2-captcha": "^1.2",
         "yiimaker/yii2-social-share": "^2.3",
-        "kartik-v/yii2-widget-datepicker": "@dev"
+        "kartik-v/yii2-widget-datepicker": "@dev",
+        "yiisoft/yii2-bootstrap4" : "^2.0.8"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",
