@@ -4,14 +4,14 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Pictures */
+/* @var $model common\models\Gallery */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Pictures', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Galleries', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="pictures-view">
+<div class="gallery-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -30,16 +30,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'comment',
-            [
-                'attribute' => 'image',
-                'format' => 'html',
-                'contentOptions'=>['class'=> 'text-center', 'style'=>'width: 220px'],
-                'value' => function ($data) {
-                    return Html::img(Yii::getAlias('@web').'/..'. $data['image_location'],
-                        ['width' => '600px', 'style'=>['background-color'=>'#393939']]);
-                },
-            ],
+            'name_uz',
+            'name_ru',
+            'name_en',
+            'image_location',
         ],
     ]) ?>
 

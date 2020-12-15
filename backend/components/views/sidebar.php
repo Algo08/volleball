@@ -40,13 +40,25 @@
     </li>
 
     <li class="nav-item">
+        <a class="nav-link" href="<?=\yii\helpers\Url::to('@web/slide')?>">
+            <i class="fas fa-fw fa-image"></i>
+            <span>Slide</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="<?=\yii\helpers\Url::to('@web/count')?>">
+            <i class="fas fa-fw fa-image"></i>
+            <span>Count</span></a>
+    </li>
+
+    <li class="nav-item">
         <a class="nav-link" href="<?=\yii\helpers\Url::to('@web/video')?>">
             <i class="fas fa-fw fa-video"></i>
             <span>Videolar</span></a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="<?=\yii\helpers\Url::to('@web/pictures')?>">
+        <a class="nav-link" href="<?=\yii\helpers\Url::to('@web/gallery')?>">
             <i class="far fa-fw fa-images"></i>
             <span>Rasmlar</span></a>
     </li>

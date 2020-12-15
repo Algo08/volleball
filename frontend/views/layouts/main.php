@@ -2,14 +2,16 @@
 
 /* @var $this \yii\web\View */
 /* @var $content string */
+/* @var \common\models\Slide[] $slides */
 
 use cinghie\multilanguage\widgets\MultiLanguageWidget;
-use yii\bootstrap\Dropdown;
 use yii\bootstrap\Nav;
 use yii\helpers\Html;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
 use yii\helpers\Url;
+
+$slides = \common\models\Slide::find()->all();
 
 AppAsset::register($this);
 ?>
@@ -30,7 +32,7 @@ AppAsset::register($this);
 <!-- header -->
 <div class="header">
     <div class="header-left">
-        <div class="container">
+        <div class="container" style="padding: 0">
             <nav class="navbar navbar-default">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -42,7 +44,7 @@ AppAsset::register($this);
                     </button>
                     <div class="logo">
                         <h1>
-                            <a href="index.html">
+                            <a href="<?=Url::home()?>">
                                 Volleyball
                                 <img class="logo-position" src="<?=Url::to('@web/frontend/web/theme/img/logo4.png')?>" alt="" />
                             </a>
@@ -52,18 +54,18 @@ AppAsset::register($this);
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
-                    <nav class="link-effect-9" id="link-effect-9">
+                    <nav class="link-effect-9 navbar-expand-lg" id="link-effect-9">
                         <?php
+
                         $menuItems = [
-                            ['label' => Yii::t('main','Bosh sahifa'), 'url' => ['/site/index'], 'linkOptions'=>['class'=>'hvr-overline-from-center scroll']],
-                            ['label' => Yii::t('main','Yangiliklar'), 'url' => ['/news/news-page'], 'linkOptions'=>['class'=>'hvr-overline-from-center']],
-                            ['label' => Yii::t('main','Biz haqimizda'), 'url' => ['#about'], 'linkOptions'=>['class'=>'hvr-overline-from-center scroll']],
-                            ['label' => Yii::t('main','Instructors'), 'url' => ['#team'], 'linkOptions'=>['class'=>'hvr-overline-from-center scroll']],
-                            ['label' => Yii::t('main','Gallery'), 'url' => ['#gallery'], 'linkOptions'=>['class'=>'hvr-overline-from-center scroll']],
-                            ['label' => Yii::t('main','Contact'), 'url' => ['#contact'], 'linkOptions'=>['class'=>'hvr-overline-from-center scroll']],
+                            ['label' => Yii::t('main','Bosh sahifa'), 'url' => ['/'], 'linkOptions'=>['class'=>'hvr-overline-from-center scroll']],
+                            ['label' => Yii::t('main','Yangiliklar'), 'url' => ['/#news'], 'linkOptions'=>['class'=>'hvr-overline-from-center scroll']],
+                            ['label' => Yii::t('main','Biz haqimizda'), 'url' => ['/#about'], 'linkOptions'=>['class'=>'hvr-overline-from-center scroll']],
+                            ['label' => Yii::t('main','Instructors'), 'url' => ['/#team'], 'linkOptions'=>['class'=>'hvr-overline-from-center scroll']],
+                            ['label' => Yii::t('main','Gallery'), 'url' => ['/#gallery'], 'linkOptions'=>['class'=>'hvr-overline-from-center scroll']],
                         ];
                         $menuItems[] =
-                                '<li>'.
+                            '<li>'.
                                 MultiLanguageWidget::widget([
                                     'addCurrentLang' => false, // add current lang
                                     'calling_controller' => $this->context,
@@ -71,10 +73,11 @@ AppAsset::register($this);
                                     'link_home' => false, // true or false
                                     'widget_type' => 'selector', // classic or selector
                                     'width' => '20'
-                                ]);
-                                '.</li>';
+                                ]).
+                            '</li>';
+
                         echo Nav::widget([
-                            'options' => ['class' => 'nav navbar-nav'],
+                            'options' => ['class' => 'nav navbar-nav text-right'],
                             'items' => $menuItems,
                         ]);?>
                     </nav>
@@ -91,53 +94,27 @@ AppAsset::register($this);
 
 <div>
     <!-- banner-text -->
-    <div class="banner-text">
+    <div class="banner-text" style="background: url(<?=Url::to('@web/theme/img/b1.jpg')?>) no-repeat bottom;">
+        <div class="overlay"></div>
         <div class="container">
             <div class="slider">
                 <div class="callbacks_container">
                     <ul class="rslides" id="slider3">
+                        <?php foreach ($slides as $slide):?>
                         <li>
-
                             <div class="banner-w3lstext">
-                                <h3>a wide selection of tennis accessories</h3>
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit.</p>
+                                <h3><?=$slide->text_head?></h3>
+                                <p><?=$slide->text_part?></p>
                                 <div class="video-pop-wthree">
                                     <a href="#small-dialog1" class="view play-icon popup-with-zoom-anim ">
-                                        <i class="fa fa-play-circle" aria-hidden="true"></i>Watch Our Video</a>
+                                        <i class="fa fa-play-circle" aria-hidden="true"></i>Videoni ko'rish</a>
                                     <div id="small-dialog1" class="mfp-hide w3ls_small_dialog wthree_pop">
-                                        <iframe src="https://player.vimeo.com/video/137808596?title=0&byline=0&portrait=0"></iframe>
+                                        <iframe src="<?=$slide->video?>"></iframe>
                                     </div>
                                 </div>
                             </div>
                         </li>
-                        <li>
-
-                            <div class="banner-w3lstext">
-                                <h3>everything you need for tennis playing</h3>
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit.</p>
-                                <div class="video-pop-wthree">
-                                    <a href="#small-dialog2" class="view play-icon popup-with-zoom-anim ">
-                                        <i class="fa fa-play-circle" aria-hidden="true"></i>Watch Our Video</a>
-                                    <div id="small-dialog2" class="mfp-hide w3ls_small_dialog wthree_pop">
-                                        <iframe src="https://player.vimeo.com/video/137808596?title=0&byline=0&portrait=0"></iframe>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-
-                            <div class="banner-w3lstext">
-                                <h3>we build leaders on the court</h3>
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit.</p>
-                                <div class="video-pop-wthree">
-                                    <a href="#small-dialog3" class="view play-icon popup-with-zoom-anim ">
-                                        <i class="fa fa-play-circle" aria-hidden="true"></i>Watch Our Video</a>
-                                    <div id="small-dialog3" class="mfp-hide w3ls_small_dialog wthree_pop">
-                                        <iframe src="https://player.vimeo.com/video/137808596?title=0&byline=0&portrait=0"></iframe>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+                        <?php endforeach;?>
                     </ul>
                 </div>
             </div>

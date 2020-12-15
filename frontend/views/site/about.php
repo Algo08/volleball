@@ -2,11 +2,7 @@
 
 /* @var $this yii\web\View */
 
-use yii\helpers\Html;
 use yii\helpers\Url;
-
-$this->title = 'About';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="about" id="about">
     <div class="container">

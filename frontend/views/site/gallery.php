@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * @var \common\models\Gallery[] $pictures
+**/
 use yii\helpers\Url;
 
 ?>
@@ -10,66 +12,18 @@ use yii\helpers\Url;
         </h3>
         <div class="gallery-main">
             <div class="gallery-bott">
+                <?php foreach ($pictures as $picture):?>
                 <div class="col-xs-4 col1 gallery-grid">
-                    <a href="<?=Url::to('@web/frontend/web/theme/img/b3.jpg')?>" class="b-link-stripe b-animate-go  thickbox">
+                    <a href="<?=Url::to('@web'.$picture->image_location)?>" class="b-link-stripe b-animate-go  thickbox">
                         <figure class="effect-bubba">
-                            <img class="img-responsive" src="<?=Url::to('@web/frontend/web/theme/img/b3.jpg')?>" alt="">
+                            <img class="img-responsive" src="<?=Url::to('@web'.$picture->image_location)?>" alt="">
                             <figcaption>
-                                <h4 class="gal">Tennis Hub</h4>
+                                <h4 class="gal"><?=$picture->name?></h4>
                             </figcaption>
                         </figure>
                     </a>
                 </div>
-                <div class="col-xs-4 col1 gallery-grid">
-                    <a href="<?=Url::to('@web/frontend/web/theme/img/g6.jpg')?>" class="b-link-stripe b-animate-go  thickbox">
-                        <figure class="effect-bubba">
-                            <img class="img-responsive" src="<?=Url::to('@web/frontend/web/theme/img/g6.jpg')?>" alt="">
-                            <figcaption>
-                                <h4 class="gal">Tennis Hub</h4>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </div>
-                <div class="col-xs-4 col1 gallery-grid">
-                    <a href="<?=Url::to('@web/frontend/web/theme/img/g5.jpg')?>" class="b-link-stripe b-animate-go  thickbox">
-                        <figure class="effect-bubba">
-                            <img class="img-responsive" src="<?=Url::to('@web/frontend/web/theme/img/g5.jpg')?>" alt="">
-                            <figcaption>
-                                <h4 class="gal">Tennis Hub</h4>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </div>
-                <div class="col-xs-4 col1 gallery-grid">
-                    <a href="<?=Url::to('@web/frontend/web/theme/img/g4.jpg')?>" class="b-link-stripe b-animate-go  thickbox">
-                        <figure class="effect-bubba">
-                            <img class="img-responsive" src="<?=Url::to('@web/frontend/web/theme/img/g4.jpg')?>" alt="">
-                            <figcaption>
-                                <h4 class="gal">Tennis Hub</h4>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </div>
-                <div class="col-xs-4 col1 gallery-grid">
-                    <a href="<?=Url::to('@web/frontend/web/theme/img/b1.jpg')?>" class="b-link-stripe b-animate-go  thickbox">
-                        <figure class="effect-bubba">
-                            <img class="img-responsive" src="<?=Url::to('@web/frontend/web/theme/img/b1.jpg')?>" alt="">
-                            <figcaption>
-                                <h4 class="gal">Tennis Hub</h4>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </div>
-                <div class="col-xs-4 col1 gallery-grid">
-                    <a href="<?=Url::to('@web/frontend/web/theme/img/b2.jpg')?>" class="b-link-stripe b-animate-go  thickbox">
-                        <figure class="effect-bubba">
-                            <img class="img-responsive" src="<?=Url::to('@web/frontend/web/theme/img/b2.jpg')?>" alt="">
-                            <figcaption>
-                                <h4 class="gal">Tennis Hub</h4>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </div>
+                <?php endforeach;?>
                 <div class="clearfix"> </div>
             </div>
         </div>

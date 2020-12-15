@@ -2,6 +2,8 @@
 namespace frontend\controllers;
 
 use common\models\Books;
+use common\models\Count;
+use common\models\Gallery;
 use common\models\News;
 use common\models\Today;
 use common\models\User;
@@ -90,7 +92,13 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $news = News::find()->orderBy(['create_date'=>SORT_DESC])->limit(3)->all();
-        return $this->render('index',['news'=>$news]);
+        $pictures = Gallery::find()->limit(6)->all();
+        $count = Count::find()->all();
+        return $this->render('index',[
+            'news'=>$news,
+            'pictures'=>$pictures,
+            'count'=>$count
+        ]);
     }
 
     /**

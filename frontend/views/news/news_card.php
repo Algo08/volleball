@@ -15,10 +15,10 @@ use yii\helpers\Url;
     <div class="news-text">
         <div class="news-events-agile">
             <h5>
-                <a href="#" data-toggle="modal" data-target="#myModal">07 Nov</a>
+                <a href="javascript:0;">07 Nov</a>
             </h5>
             <div class="post-img">
-                <a href="#">
+                <a href="javascript:0;">
                     <ul>
                         <li>
                             <span class="fa fa-comments" aria-hidden="true"></span>
@@ -34,8 +34,8 @@ use yii\helpers\Url;
             </div>
             <div class="clearfix"></div>
         </div>
-        <div class="detail-bottom">
-            <a href="#" data-toggle="modal" data-target="#myModal">
+        <div class="detail-bottom" style="min-height: 170px">
+            <a href="javascript:0;">
                 <h6><?=$news->text_head?></h6>
             </a>
             <p><?=$news->text_part?></p>

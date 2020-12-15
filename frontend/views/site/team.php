@@ -4,7 +4,8 @@ use yii\helpers\Url;
 
 ?>
 <div class="team  wthree" id="team">
-    <div class="container">
+    <div class="overlay"></div>
+    <div class="container" style="position: relative">
         <h3 class="title">Instructors
             <img src="<?=Url::to('@web/frontend/web/theme/img/logo2.png')?>" alt="" />
         </h3>

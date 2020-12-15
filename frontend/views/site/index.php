@@ -1,6 +1,11 @@
 <?php
 
-/* @var $this yii\web\View */
+/**
+ * @var $this yii\web\View *
+ * @var \common\models\News[] $news
+ * @var \common\models\Gallery[] $pictures
+ * @var \common\models\Count[] $count
+ */
 
 use yii\helpers\Url;
 
@@ -8,7 +13,7 @@ if (class_exists('yii\debug\Module')) {
     $this->off(\yii\web\View::EVENT_END_BODY, [\yii\debug\Module::getInstance(), 'renderToolbar']);
 }
 
-$this->title = 'My Yii Application';
+$this->title = 'Volleyball';
 ?>
 <body>
 
@@ -17,7 +22,7 @@ $this->title = 'My Yii Application';
 <!-- //about -->
 
 <!-- stats -->
-<?= $this->renderAjax('stats')?>
+<?= $this->renderAjax('stats',['count'=>$count])?>
 <!-- //stats -->
 
 <!-- services -->
@@ -30,7 +35,7 @@ $this->title = 'My Yii Application';
 <!-- //team -->
 
 <!-- news -->
-<div class="news-section" >
+<div class="news-section" id="news">
     <div class="container">
         <h3 class="title">Our Blog
             <img src="<?=Url::to('@web/frontend/web/theme/img/logo2.png')?>" alt="" />
@@ -40,12 +45,15 @@ $this->title = 'My Yii Application';
                 <?= $this->renderAjax('/news/news_card',['news'=>$new])?>
             <?php endforeach;?>
         </div>
+        <div class="col-sm-12 text-center">
+            <a class="all" href="<?=Url::to(['/news/news-page'])?>">Barchasi</a>
+        </div>
     </div>
 </div>
 <!-- //blog -->
 
 <!-- gallery -->
-<?= $this->renderAjax('gallery')?>
+<?= $this->renderAjax('gallery',['pictures'=>$pictures])?>
 <!-- //gallery -->
 
 <!-- contact -->

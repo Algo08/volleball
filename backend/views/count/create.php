@@ -3,13 +3,13 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Pictures */
+/* @var $model common\models\Count */
 
-$this->title = 'Create Pictures';
-$this->params['breadcrumbs'][] = ['label' => 'Pictures', 'url' => ['index']];
+$this->title = 'Create Count';
+$this->params['breadcrumbs'][] = ['label' => 'Counts', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="pictures-create">
+<div class="count-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
