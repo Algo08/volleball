@@ -1,34 +1,41 @@
 <?php
 /**
- * @var \common\models\News[] $news
+ * @var \common\models\Gallery[] $gallery
  * @var integer $key
  */
+
+use yii\helpers\Url;
+
 ?>
-<div class="container-fluid section container" id="news-blog">
-    <div class="row m-0"  id="news">
-        <?= $this->renderAjax('news_foreach_list',['news'=>$news])?>
+<div class="container-fluid news-section container" id="gallery-blog">
+    <h3 class="title">Our Gallery
+        <img src="<?=Url::to('@web/frontend/web/theme/img/logo2.png')?>" alt="" />
+    </h3>
+    <div class="row m-0"  id="gallery">
+        <?= $this->renderAjax('foreach_list',['gallery'=>$gallery])?>
     </div>
     <h2 class="text-center page-header">
-        <small class="other font-weight-light btn btn-lg" data-value="<?=$key?>"><?= Yii::t('main','Yana yangiliklar')?></small>
+        <small class="other font-weight-light btn btn-lg" data-value="<?=$key?>"><?= Yii::t('main','Yana rasmlar')?></small>
         <i class="fa fa-spinner" id="loading" style="opacity: 0;"></i>
     </h2>
 </div>
 <?php
-$urlNews = \yii\helpers\Url::to(['other-news']);
+$urlGallery = \yii\helpers\Url::to(['other-photos']);
 $hammasi = Yii::t('main', 'Hammasi shular');
 $script = <<< JS
+
 $(document).ajaxStart(function(){
     $('#loading').css('opacity', '1');
  }).ajaxStop(function(){
     $('#loading').css('opacity', '0');
  });
 var btnLast = $('.other.font-weight-light');
-var newsDiv = $('#news');
+var galleryDiv = $('#gallery');
 var keyNumber = btnLast.data('value');
         btnLast.on('click',function(event) {
             event.preventDefault();
             $.ajax({
-                url: '$urlNews',
+                url: '$urlGallery',
                 data:{
                     key: keyNumber,
                 }, 
@@ -37,7 +44,7 @@ var keyNumber = btnLast.data('value');
                         btnLast.html('$hammasi'); 
                     }
                     else {
-                        newsDiv.html(newsDiv.html()+data);
+                        galleryDiv.html(galleryDiv.html()+data);
                         keyNumber += 3;
                     }   
                  }

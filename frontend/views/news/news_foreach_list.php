@@ -10,7 +10,7 @@ use yii\helpers\Url;
 <!-- blog -->
 <div class="news-section">
     <div class="container">
-        <h3 class="title">Our Blog
+        <h3 class="title">News
             <img src="<?=Url::to('@web/frontend/web/theme/img/logo2.png')?>" alt="" />
         </h3>
         <div class="news-grids-w3l">

@@ -1,7 +1,11 @@
 <?php
 
+use developit\captcha\Captcha;
+use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\widgets\ActiveForm;
 
+$model = new \common\models\Message();
 ?>
 <div class="contact" id="contact">
     <div class="container">
@@ -52,13 +56,34 @@ use yii\helpers\Url;
                 </div>
             </div>
             <div class="col-md-7 col-xs-7 contact-grid-agile">
-                <form action="#" method="post">
-                    <input type="text" placeholder="Name" name="name" required="">
-                    <input type="email" placeholder="Email" name="email" required="">
-                    <input type="text" placeholder="Subject" name="subject" required="">
-                    <textarea placeholder="Message.." name="message" required=""></textarea>
-                    <input type="submit" value="Send Now">
-                </form>
+<!--                <form action="#" method="post">-->
+<!--                    <input type="text" placeholder="Name" name="name" required="">-->
+<!--                    <input type="email" placeholder="Email" name="email" required="">-->
+<!--                    <input type="text" placeholder="Subject" name="subject" required="">-->
+<!--                    <textarea placeholder="Message.." name="message" required=""></textarea>-->
+<!--                    <input type="submit" value="Send Now">-->
+<!--                </form>-->
+                <?php $form = ActiveForm::begin([
+                    'id' => 'contact-us',
+                    'action'=>Url::to(['contact'])
+                ]); ?>
+
+                <?= $form->field($model, 'name')->textInput(['placeholder' => $model->getAttributeLabel('name')])->label(false) ?>
+
+                <?= $form->field($model, 'email')->textInput(['placeholder' => $model->getAttributeLabel('email')])->label(false) ?>
+
+                <?= $form->field($model, 'phone')->textInput(['placeholder' => $model->getAttributeLabel('phone')])->label(false) ?>
+
+                <?= $form->field($model, 'text')->textarea(['placeholder' => $model->getAttributeLabel('text')])->label(false) ?>
+
+                <?= $form->field($model, 'captcha')->widget(Captcha::className(), [
+                    'template' => '<div class="row m-0"><div class="col-lg-3 mx-auto">{image}</div><div class="col-lg-9">{input}</div></div>',
+                    'captchaAction' => '/site/captcha'
+                ])->label(false)?>
+
+                <?= Html::submitButton('Send', ['class' => 'contact-grid-agile']) ?>
+
+                <?php ActiveForm::end(); ?>
             </div>
             <div class="clearfix"> </div>
         </div>

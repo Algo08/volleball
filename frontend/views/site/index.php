@@ -18,20 +18,20 @@ $this->title = 'Volleyball';
 <body>
 
 <!-- about -->
-<?= $this->renderAjax('about')?>
+<?= $this->render('about')?>
 <!-- //about -->
 
 <!-- stats -->
-<?= $this->renderAjax('stats',['count'=>$count])?>
+<?= $this->render('stats',['count'=>$count])?>
 <!-- //stats -->
 
 <!-- services -->
-<?= $this->renderAjax('services')?>
+<?= $this->render('services')?>
 
 <!-- //services -->
 
 <!-- team -->
-<?= $this->renderAjax('team')?>
+<?= $this->render('team')?>
 <!-- //team -->
 
 <!-- news -->
@@ -46,18 +46,35 @@ $this->title = 'Volleyball';
             <?php endforeach;?>
         </div>
         <div class="col-sm-12 text-center">
-            <a class="all" href="<?=Url::to(['/news/news-page'])?>">Barchasi</a>
+            <a class="all" href="<?=Url::to(['/news/news-page#news-blog'])?>">Barchasi</a>
         </div>
     </div>
 </div>
 <!-- //blog -->
 
 <!-- gallery -->
-<?= $this->renderAjax('gallery',['pictures'=>$pictures])?>
+<div class="gallery" id="gallery">
+    <div class="container">
+        <h3 class="title">Our Gallery
+            <img src="<?=Url::to('@web/frontend/web/theme/img/logo2.png')?>" alt="" />
+        </h3>
+        <div class="gallery-main">
+            <div class="gallery-bott">
+                <?php foreach ($pictures as $g):?>
+                    <?= $this->renderAjax('/gallery/photo',['gallery'=>$g])?>
+                <?php endforeach;?>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="col-sm-12 text-center">
+                <a class="all" href="<?=Url::to(['/gallery#gallery-blog'])?>">Barchasi</a>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- //gallery -->
 
 <!-- contact -->
-<?= $this->renderAjax('contact')?>
+<?= $this->render('contact')?>
 <!-- //contact -->
 
 

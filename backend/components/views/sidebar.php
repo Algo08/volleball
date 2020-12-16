@@ -11,7 +11,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
             <img src="<?= \yii\helpers\Url::to('@web/../theme/img/logo-alt.png')?>" style="width: 45px" alt="">
         </div>
-        <div class="sidebar-brand-text mx-2">Geostudy <sup>uz</sup></div>
+        <div class="sidebar-brand-text mx-2">Volleyball <sup>uz</sup></div>
     </a>
 
     <!-- Divider -->

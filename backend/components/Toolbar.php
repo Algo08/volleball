@@ -1,5 +1,6 @@
 <?php
 namespace app\components;
+use common\models\Message;
 use yii\base\Widget;
 
 /**
@@ -13,10 +14,9 @@ class Toolbar extends Widget
 {
     public function run()
     {
-//        $appilations = \common\models\Appilation::find()->where(['readed'=>0])->all();
-//        $countMess = count($appilations);
-        return $this->render('toolbar');
-//        return $this->render('toolbar',['appilations'=>$appilations,'countMess'=>$countMess]);
+        $messages = Message::find()->where(['readed'=>0])->all();
+        $countMess = count($messages);
+        return $this->render('toolbar',['messages'=>$messages,'countMess'=>$countMess]);
     }
 
 }
