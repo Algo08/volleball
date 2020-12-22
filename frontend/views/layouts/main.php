@@ -40,7 +40,7 @@ AppAsset::register($this);
                     <div class="logo">
                         <h1>
                             <a href="index.html">
-                                Tennis Hub
+                                Volleyball
                                 <img class="logo-position" src="<?=Url::to('@web/frontend/web/theme/img/logo4.png')?>" alt="" />
                             </a>
                         </h1>

@@ -6,8 +6,6 @@ return [
     'senderName' => 'Geostudy',
     'user.passwordResetTokenExpire' => 3600,
     'user.passwordMinLength' => 8,
-    'bsVersion' => '4.x',
-
     'category' => [
         '1'=>'Maktab darsliklari',
         '2'=>'Prizentatsiya',
