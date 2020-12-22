@@ -1122,8 +1122,8 @@ figure.effect-bubba:hover p {
     color: #464646;
 }
 
-.contact-grid-agile input[type="text"].form-control,
-.contact-grid-agile input[type="email"].form-control,
+.contact-grid-agile input.form-control,
+.contact-grid-agile input.form-control,
 .contact-grid-agile textarea.form-control {
     outline: none;
     border: 1px solid rgba(0, 0, 0, 0.25);
@@ -1137,7 +1137,12 @@ figure.effect-bubba:hover p {
     height: auto;
     border-radius: 0px;
 }
-
+.contact-grid-agile input[type="tel"].form-control{
+    padding-left: 4em !important;
+}
+.iti.iti--allow-dropdown{
+    width: 100%;
+}
 .contact-grid-agile textarea {
     min-height: 170px;
     width: 100%;

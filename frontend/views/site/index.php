@@ -5,6 +5,8 @@
  * @var \common\models\News[] $news
  * @var \common\models\Gallery[] $pictures
  * @var \common\models\Count[] $count
+ * @var \common\models\Trainer[] $trainer
+ * @var \common\models\Contact $contact
  */
 
 use yii\helpers\Url;
@@ -16,23 +18,6 @@ if (class_exists('yii\debug\Module')) {
 $this->title = 'Volleyball';
 ?>
 <body>
-
-<!-- about -->
-<?= $this->render('about')?>
-<!-- //about -->
-
-<!-- stats -->
-<?= $this->render('stats',['count'=>$count])?>
-<!-- //stats -->
-
-<!-- services -->
-<?= $this->render('services')?>
-
-<!-- //services -->
-
-<!-- team -->
-<?= $this->render('team')?>
-<!-- //team -->
 
 <!-- news -->
 <div class="news-section" id="news">
@@ -51,6 +36,20 @@ $this->title = 'Volleyball';
     </div>
 </div>
 <!-- //blog -->
+
+<!-- stats -->
+<?= $this->render('stats',['count'=>$count])?>
+<!-- //stats -->
+
+<!-- services -->
+<?= $this->render('services')?>
+
+<!-- //services -->
+
+<!-- team -->
+<?= $this->render('team',['trainer'=>$trainer])?>
+<!-- //team -->
+
 
 <!-- gallery -->
 <div class="gallery" id="gallery">
@@ -74,7 +73,7 @@ $this->title = 'Volleyball';
 <!-- //gallery -->
 
 <!-- contact -->
-<?= $this->render('contact')?>
+<?= $this->render('contact',['contact'=>$contact])?>
 <!-- //contact -->
 
 

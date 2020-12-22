@@ -54,7 +54,7 @@ class Count extends \yii\db\ActiveRecord
     /**
      * @return string
      */
-    public function getname(){
+    public function getName(){
         switch (Yii::$app->language){
             case 'ru': return $this->name_ru == null ? $this->name_uz : $this->name_ru ;break;
             case 'en': return $this->name_en == null ? $this->name_uz : $this->name_en ;break;

@@ -3,13 +3,23 @@
 namespace backend\controllers;
 
 use common\models\Message;
+use yii\data\ActiveDataProvider;
 
 class MessagesController extends \yii\web\Controller
 {
     public function actionIndex()
     {
-        $messages = Message::find()->orderBy(['id'=>SORT_DESC])->all();
-        return $this->render('index',['messages'=>$messages]);
+        $dataProvider = new ActiveDataProvider([
+            'query' => Message::find()
+                ->orderBy(['create_date'=>SORT_DESC]),
+            'pagination' => [
+                'pageSize' => 20,
+            ],
+        ]);
+
+        return $this->render('index', [
+            'dataProvider' => $dataProvider,
+        ]);
     }
 
 

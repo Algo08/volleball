@@ -1,8 +1,10 @@
 <?php
 /**
- * @var \common\models\Message[] $messages
+ *  @var \yii\debug\models\timeline\DataProvider $dataProvider
  */
-$message = $message ?? $messages[0];
+
+use yii\widgets\ListView;
+
 ?>
 <!-- Circle Buttons -->
 <div class="row">
@@ -12,12 +14,16 @@ $message = $message ?? $messages[0];
                 <h6 class="m-0 font-weight-bold text-primary">Chats</h6>
             </div>
             <div class="card-body dropdown-list" style="width: 100% !important;">
-                <?= $this->renderAjax('messages',['messages'=>$messages])?>
+                <?= ListView::widget([
+                    'dataProvider' => $dataProvider,
+                    'itemView' => 'messages',
+                    'layout'=> '{items}{pager}'
+                ]);?>
             </div>
         </div>
     </div>
 
-    <div class="col-lg-7 chat-full">
-        <?= $this->renderAjax('message',['message'=>$message])?>
+    <div class="col-lg-7 chat-full" id="chat">
+        <?= $this->renderAjax('message',['message'=>$dataProvider->getModels()[0]])?>
     </div>
 </div>

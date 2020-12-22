@@ -1,27 +1,17 @@
 <?php
 namespace frontend\controllers;
 
-use common\models\Books;
+use common\models\Contact;
 use common\models\Count;
 use common\models\Gallery;
 use common\models\Message;
 use common\models\News;
-use common\models\Today;
-use common\models\User;
-use frontend\models\ResendVerificationEmailForm;
-use frontend\models\VerifyEmailForm;
+use common\models\Trainer;
 use Yii;
-use yii\base\InvalidArgumentException;
-use yii\bootstrap4\ActiveForm;
-use yii\web\BadRequestHttpException;
+use yii\bootstrap\ActiveForm;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use common\models\LoginForm;
-use frontend\models\PasswordResetRequestForm;
-use frontend\models\ResetPasswordForm;
-use frontend\models\SignupForm;
-use frontend\models\ContactForm;
 use yii\web\Response;
 
 /**
@@ -95,10 +85,14 @@ class SiteController extends Controller
         $news = News::find()->orderBy(['create_date'=>SORT_DESC])->limit(3)->all();
         $pictures = Gallery::find()->limit(6)->all();
         $count = Count::find()->all();
+        $trainer = Trainer::find()->all();
+        $contact = Contact::find()->one();
         return $this->render('index',[
             'news'=>$news,
             'pictures'=>$pictures,
-            'count'=>$count
+            'count'=>$count,
+            'trainer'=>$trainer,
+            'contact'=>$contact
         ]);
     }
 

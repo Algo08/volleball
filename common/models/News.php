@@ -75,7 +75,7 @@ class News extends \yii\db\ActiveRecord
     /**
      * @return string
      */
-    public function gettext_head(){
+    public function getText_head(){
         switch (Yii::$app->language){
             case 'ru': return $this->text_head_ru == null ? $this->text_head_uz : $this->text_head_ru ;break;
             case 'en': return $this->text_head_en == null ? $this->text_head_uz : $this->text_head_en ;break;
@@ -85,7 +85,7 @@ class News extends \yii\db\ActiveRecord
     /**
      * @return string
      */
-    public function gettext_part(){
+    public function getText_part(){
         switch (Yii::$app->language){
             case 'ru': return $this->text_part_ru == null ? $this->text_part_uz : $this->text_part_ru ;break;
             case 'en': return $this->text_part_en == null ? $this->text_part_uz : $this->text_part_en ;break;
@@ -97,7 +97,7 @@ class News extends \yii\db\ActiveRecord
     /**
      * @return string
      */
-    public function gettext_body(){
+    public function getText_body(){
         switch (Yii::$app->language){
             case 'ru': return $this->text_body_ru == null ? $this->text_body_uz : $this->text_body_ru ;break;
             case 'en': return $this->text_body_en == null ? $this->text_body_uz : $this->text_body_en ;break;

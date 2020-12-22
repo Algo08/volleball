@@ -12,7 +12,7 @@ use common\widgets\Alert;
 use yii\helpers\Url;
 
 $slides = \common\models\Slide::find()->all();
-
+$contact = \common\models\Contact::find()->one();
 AppAsset::register($this);
 ?>
 
@@ -138,13 +138,15 @@ AppAsset::register($this);
             <h4>Address</h4>
             <ul>
                 <li>
-                    <span class="glyphicon glyphicon-home" aria-hidden="true"></span> 738 Diamond Road, New York City</li>
-                <li>
-                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                    <a href="mailto:info@example.com">info@example.com</a>
+                    <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                    <a href="<?=$contact->location_url ?? '#'?>" target="_blank"><?=$contact->location?></a>
                 </li>
                 <li>
-                    <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> (0123) 0111 111 222</li>
+                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                    <a href="mailto:<?=$contact->mail?>"><?=$contact->mail?></a>
+                </li>
+                <li>
+                    <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <?=$contact->phone?></li>
                 <li>
                     <span class="glyphicon glyphicon-time" aria-hidden="true"></span> Mon-Sat 09:00 AM - 05:00PM </li>
             </ul>

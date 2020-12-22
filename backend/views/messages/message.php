@@ -18,7 +18,7 @@ use yii\bootstrap4\Html;
             <div class="card-body pr-1">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <a href="https://t.me/<?=$message->phone?>" target="_blank" class="btn col-auto float-right px-1">
+                        <a href="tel:<?=$message->phone?>" target="_blank" class="btn col-auto float-right px-1">
                             <i class="fab fa-telegram-plane text-gray-300"></i>
                         </a>
                         <a href="mailto:<?=$message->email?>" class="text-xs font-weight-bold text-warning text-uppercase mb-1 d-lg-inline d-block"><?=$message->email?></a>

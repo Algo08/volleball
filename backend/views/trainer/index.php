@@ -6,17 +6,12 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Videos';
+$this->title = 'Trainers';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="video-index">
+<div class="trainer-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a('Create Video', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -24,7 +19,10 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'text_uz',
+            'text',
+            'facebook',
+            'instagram',
+            'mail',
             [
                 'attribute' => 'image',
                 'format' => 'html',
@@ -34,16 +32,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         ['width' => '100px', 'style'=>['background-color'=>'#393939']]);
                 },
             ],
-            [
-                'attribute' => 'Link',
-                'format' => 'html',
-                'value' => function ($data) {
-                    return Html::a('videoni kurish',$data['video_link'], ['target'=>'_blank']);
-                },
-            ],
-            'create_date',
-
-
             ['class' => 'yii\grid\ActionColumn',
                 'contentOptions'=>['class'=> 'text-center', 'style'=>'width: 160px'],
                 'buttons'=>[
@@ -54,18 +42,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     'update'=>function ($url, $model) {
                         return Html::a( '<i class="fa fa-pencil-alt mx-1"></i>',\yii\helpers\Url::to(['update','id'=>$model->id]),
                             ['class' => 'update'] );
-                    },
-                    'delete'=>function ($url, $model) {
-                        return Html::a( '<i class="fa fa-trash mx-1"></i>','javascript:0',
-                            ['class' => 'delete', 'data-key'=>$model->id,
-                                'data' => [
-                                    'confirm' => 'Are you sure you want to delete this item?',
-                                    'method' => 'post',
-                                ],
-                            ] );
                     }
                 ],
-            ],        ],
+            ],
+        ],
     ]); ?>
 
 

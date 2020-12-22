@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * @var \common\models\Contact $contact
+**/
+use borales\extensions\phoneInput\PhoneInput;
 use developit\captcha\Captcha;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -9,7 +12,7 @@ $model = new \common\models\Message();
 ?>
 <div class="contact" id="contact">
     <div class="container">
-        <h3 class="title">Contact Us
+        <h3 class="title"><?=Yii::t('main','Biz bilan bog`laning')?>
             <img src="<?=Url::to('@web/frontend/web/theme/img/logo2.png')?>" alt="" />
         </h3>
         <div class="contact-grid-agiles-w3l">
@@ -20,22 +23,22 @@ $model = new \common\models\Message();
                 <div class="contact-right2">
                     <div class="call ">
                         <div class="col-xs-4 contact-grdr-w3l">
-                            <h3>Call us :</h3>
+                            <h3>Tel :</h3>
                         </div>
                         <div class="col-xs-8 contact-grdr-w3l">
                             <ul>
-                                <li>+3402 890 679</li>
+                                <li><?=$contact->phone?></li>
                             </ul>
                         </div>
                         <div class="clearfix"> </div>
                     </div>
                     <div class="call">
                         <div class="col-xs-4 contact-grdr-w3l">
-                            <h3>Locate us :</h3>
+                            <h3><?=Yii::t('main','Manzil')?> :</h3>
                         </div>
                         <div class="col-xs-8 contact-grdr-w3l">
                             <ul>
-                                <li>345 Diamond Street</li>
+                                <li><a href="<?=$contact->location_url ?? '#'?>" target="_blank"><?=$contact->location?></a></li>
                             </ul>
                         </div>
                         <div class="clearfix"> </div>
@@ -47,7 +50,7 @@ $model = new \common\models\Message();
                         <div class="col-xs-8 contact-grdr-w3l">
                             <ul>
                                 <li>
-                                    <a href="mailto:info@example.com">info@example.com</a>
+                                    <a href="mailto:<?=$contact->mail?>"><?=$contact->mail?></a>
                                 </li>
                             </ul>
                         </div>
@@ -72,7 +75,11 @@ $model = new \common\models\Message();
 
                 <?= $form->field($model, 'email')->textInput(['placeholder' => $model->getAttributeLabel('email')])->label(false) ?>
 
-                <?= $form->field($model, 'phone')->textInput(['placeholder' => $model->getAttributeLabel('phone')])->label(false) ?>
+                <?=$form->field($model, 'phone')->widget(PhoneInput::className(), [
+                    'jsOptions' => [
+                        'preferredCountries' => ['uz', 'ru', 'kz', 'gb'],
+                    ]
+                ])->label(false);?>
 
                 <?= $form->field($model, 'text')->textarea(['placeholder' => $model->getAttributeLabel('text')])->label(false) ?>
 

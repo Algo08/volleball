@@ -74,13 +74,24 @@
     </div>
 
 
+
+    <li class="nav-item">
+        <a class="nav-link" href="<?=\yii\helpers\Url::to('@web/trainer')?>">
+            <i class="fas fa-people-arrows"></i>
+            <span>Murabbiylar</span></a>
+    </li>
+
     <li class="nav-item">
         <a class="nav-link" href="<?=\yii\helpers\Url::to('@web/about')?>">
-            <i class="fas fa-fw fa-pen"></i>
+            <i class="fas fa-pen"></i>
             <span>Biz haqimizda</span></a>
     </li>
 
-
+    <li class="nav-item">
+        <a class="nav-link" href="<?=\yii\helpers\Url::to('@web/contact')?>">
+            <i class="fas fa-phone-alt"></i>
+            <span>Bog'lanish</span></a>
+    </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
