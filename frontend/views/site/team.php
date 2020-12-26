@@ -14,7 +14,7 @@ use yii\helpers\Url;
         <div class="team-bottom">
             <?php foreach ($trainer as $coach):?>
             <div class="col-md-3 col-xs-3 team-grid">
-                <img src="<?=Url::to('@web/'.$coach->image_location)?>" class="img-responsive" alt="">
+                <img src="<?=Url::to('@web'.$coach->image_location)?>" class="img-responsive" alt="">
                 <div class="caption">
                     <div class="team-text">
                         <h4><?=$coach->text?></h4>
