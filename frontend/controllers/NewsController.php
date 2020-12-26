@@ -8,11 +8,6 @@ use Yii;
 
 class NewsController extends \yii\web\Controller
 {
-    public function actionIndex()
-    {
-        return $this->render('index');
-    }
-
     public function actionNewsPage()
     {
         $news = News::find()->orderBy(['create_date'=>SORT_DESC])->limit(6)->all();
@@ -32,13 +27,11 @@ class NewsController extends \yii\web\Controller
      * @param null $id
      * @return string
      */
-    public function actionNewsView($id = null)
+    public function actionNewsView($id)
     {
         $news = News::findOne($id);
-        $comments = Comments::find()->where(['and',['news_id'=>$news->id],['reply_to'=>null]])->orderBy(['create_date'=>SORT_DESC])->limit(30)->all();
-        return $this->render('news_view', [
-            'news' => $news,
-            'comments' => $comments
+        return $this->renderAjax('modal', [
+            'news' => $news
         ]);
     }
 

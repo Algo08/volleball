@@ -1,23 +1,70 @@
 <?php
-/**
- * @var \common\models\News $news
- */
-if (class_exists('yii\debug\Module')) {
-    $this->off(\yii\web\View::EVENT_END_BODY, [\yii\debug\Module::getInstance(), 'renderToolbar']);
-}
-?>
-<div class="course">
-    <a href="<?= \yii\helpers\Url::to(['news/news-view','id'=>$news->id])?>" class="course-img">
-        <img src="<?=\yii\helpers\Url::to('@web'.$news->image_location)?>" alt="...">
-        <i class="course-link-icon fa fa-link"></i>
-    </a>
-    <a class="course-title" href="<?= \yii\helpers\Url::to(['news/news-view','id'=>$news->id])?>"><?=$news->text_head?></a>
-    <div class="course-details">
-        <span class="course-price course-premium">
-            <span class="fa fa-comment-o h-100"> <?= $news->cOMMENTS?> |</span>
-            <?=date('M d, yy H:i',strtotime($news->create_date))?>
-        </span>
 
-        <a href="<?= \yii\helpers\Url::to(['news/news-view','id'=>$news->id])?>" ><span class="course-category font-weight-light"><?= Yii::t('main', 'Batafsil')?></span></a>
+/**
+* @var \common\models\News $news
+ **/
+
+use yii\helpers\Url;
+
+?>
+
+<div class="col-sm-4 news-grid" data-key="<?=$news->id?>">
+    <a href="javascript:0;">
+        <img src="<?=Url::to('@web'.$news->image_location)?>" class="img-responsive" alt="" />
+    </a>
+    <div class="news-text">
+        <div class="news-events-agile">
+            <h5>
+                <a href="javascript:0;">07 Nov</a>
+            </h5>
+            <div class="post-img">
+                <a href="javascript:0;">
+                    <ul>
+                        <li>
+                            <span class="fa fa-comments" aria-hidden="true"></span>
+                        </li>
+                        <li>
+                            <span class="fa fa-heart" aria-hidden="true"></span>
+                        </li>
+                        <li>
+                            <span class="fa fa-share" aria-hidden="true"></span>
+                        </li>
+                    </ul>
+                </a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="detail-bottom" style="min-height: 170px">
+            <a href="javascript:0;">
+                <h6><?=$news->text_head?></h6>
+            </a>
+            <p><?=$news->text_part?></p>
+        </div>
     </div>
 </div>
+<div class="modal-news"></div>
+<?php
+$urlModal = \yii\helpers\Url::to(['/news/news-view']);
+
+$script = <<< JS
+var newsGrid = $('.news-grid[data-key="$news->id"]');
+var modalNews = $('.modal-news');
+        newsGrid.on('click',function(event) {
+            event.preventDefault();
+            newsId = $(this).data('key');
+            $.ajax({
+                url: '$urlModal',
+                data:{
+                    id: newsId,
+                }, 
+                success: function (data) {
+                    modalNews.html(data);
+                    $('#myModal').modal('show');
+                }
+            });
+        });
+      
+JS;
+$this->registerJs( $script );
+?>
+

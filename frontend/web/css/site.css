@@ -1,6 +1,7 @@
 html,
 body {
     height: 100%;
+    touch-action: none;
     scroll-behavior: smooth;
 
 }
@@ -126,8 +127,10 @@ a.desc:after {
 }
 .lang-selector {
     padding: 1.5rem;
-    line-height: 2.7 !important;
     display: block;
+}
+.lang-selector:focus{
+    background-color: white !important;
 }
 .head-list.dropdown-menu.with-arrow {
     padding: 10px 20px;

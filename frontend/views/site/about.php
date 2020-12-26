@@ -2,32 +2,36 @@
 
 /* @var $this yii\web\View */
 
-use yii\helpers\Html;
 use yii\helpers\Url;
-
-$this->title = 'About';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="hero-area section">
-    <!-- Backgound Image -->
-    <div class="bg-image bg-parallax overlay" style="background-image:url(<?=Url::to('@web/frontend/web/theme/img/page-background.jpg')?>)"></div>
-    <!-- /Backgound Image -->
+<div class="about" id="about">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1 text-center">
-                <ul class="hero-area-tree">
-                    <li><a href="<?= Yii::$app->homeUrl?>"><?=Yii::t('main','Bosh sahifa')?></a></li>
-                    <li><?=$this->title?></li>
-                </ul>
-                <h1 class="white-text"><?=$this->title?></h1>
+        <h3 class="title">About Us
+            <img src="<?=Url::to('@web/frontend/web/theme/img/logo2.png')?>" alt="" />
+        </h3>
+        <div class="about-top">
+            <div class="col-md-6 about-img-agile">
+                <img class="img-responsive" src="<?=Url::to('@web/frontend/web/theme/img/about63.png')?>" alt="">
             </div>
+            <div class="col-md-6 about-wel">
+                <h2>A Few Words About Our Club</h2>
+                <p>Masagni dolores eoquie int Basmodi temporant, ut laboreas dolore magnam aliquam kuytase uaeraquis autem vel eum iure
+                    reprehend.Unicmquam eius, Basmodi temurer sehsMunim.</p>
+                <ul>
+                    <li>
+                        <i class="glyphicon glyphicon-ok"></i>Masagni dolores eoquie voluptaquisquam</li>
+                    <li>
+                        <i class="glyphicon glyphicon-ok"></i>Ipsumquia dolor sitamnetase adipiscquam eiuse</li>
+                    <li>
+                        <i class="glyphicon glyphicon-ok"></i>Basmodi temporant, ut laboreas dolore</li>
+                    <li>
+                        <i class="glyphicon glyphicon-ok"></i>Ipsumquia dolor sitamnetase adipiscquam eiuse</li>
+                </ul>
+                <div class="video-agile">
+                    <iframe src="https://player.vimeo.com/video/137808596?title=0&byline=0&portrait=0"></iframe>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
         </div>
     </div>
-</div>
-<div class="site-about section container">
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>This is the About page. You may modify the following file to customize its content:</p>
-
-    <code><?= __FILE__ ?></code>
 </div>

@@ -55,7 +55,7 @@ class Pictures extends \yii\db\ActiveRecord
     /**
      * @return string
      */
-    public function getcomment(){
+    public function getComment(){
         switch (Yii::$app->language){
             case 'ru': return $this->comment_ru == null ? $this->comment_uz : $this->comment_ru ;break;
             case 'en': return $this->comment_en == null ? $this->comment_uz : $this->comment_en ;break;

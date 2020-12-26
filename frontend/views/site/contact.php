@@ -1,73 +1,98 @@
 <?php
-
-/* @var $this yii\web\View */
-/* @var $form yii\bootstrap4\ActiveForm */
-/* @var $model \frontend\models\ContactForm */
-
+/**
+ * @var \common\models\Contact $contact
+**/
+use borales\extensions\phoneInput\PhoneInput;
+use developit\captcha\Captcha;
 use yii\helpers\Html;
-use yii\bootstrap4\ActiveForm;
-use yii\captcha\Captcha;
 use yii\helpers\Url;
+use yii\widgets\ActiveForm;
 
-$this->title = 'Contact';
-$this->params['breadcrumbs'][] = $this->title;
+$model = new \common\models\Message();
 ?>
-<div class="hero-area section">
-    <!-- Backgound Image -->
-    <div class="bg-image bg-parallax overlay" style="background-image:url(<?=Url::to('@web/frontend/web/theme/img/page-background.jpg')?>)"></div>
-    <!-- /Backgound Image -->
+<div class="contact" id="contact">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1 text-center">
-                <ul class="hero-area-tree">
-                    <li><a href="<?= Yii::$app->homeUrl?>"><?=Yii::t('main','Bosh sahifa')?></a></li>
-                    <li><?=$this->title?></li>
-                </ul>
-                <h1 class="white-text"><?=$this->title?></h1>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="site-contact section container">
-    <div class="row">
-        <div class="col-lg-6">
-            <h4><?= Html::encode($this->title) ?></h4>
-
-            <div class="contact-form">
-            <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
-
-                <?= $form->field($model, 'name')->textInput(['autofocus' => true, 'placeholder'=>'Username'])->label(false) ?>
-
-                <?= $form->field($model, 'email')->textInput(['placeholder'=>'Email'])->label(false) ?>
-
-                <?= $form->field($model, 'subject')->textInput(['placeholder'=>'Subject'])->label(false) ?>
-
-                <?= $form->field($model, 'body')->textarea(['rows' => 6, 'placeholder'=>'Enter your Message'])->label(false) ?>
-
-                <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
-                    'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
-                ])->label(false) ?>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Submit', ['class' => 'main-button icon-button float-right', 'name' => 'contact-button']) ?>
+        <h3 class="title"><?=Yii::t('main','Biz bilan bog`laning')?>
+            <img src="<?=Url::to('@web/frontend/web/theme/img/logo2.png')?>" alt="" />
+        </h3>
+        <div class="contact-grid-agiles-w3l">
+            <div class="col-md-5 col-xs-5 contact-grid-agile">
+                <div class="contact-right1">
+                    <img src="<?=Url::to('@web/frontend/web/theme/img/mail36.jpg')?>" alt="" />
                 </div>
-
-            <?php ActiveForm::end(); ?>
+                <div class="contact-right2">
+                    <div class="call ">
+                        <div class="col-xs-4 contact-grdr-w3l">
+                            <h3>Tel :</h3>
+                        </div>
+                        <div class="col-xs-8 contact-grdr-w3l">
+                            <ul>
+                                <li><?=$contact->phone?></li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="call">
+                        <div class="col-xs-4 contact-grdr-w3l">
+                            <h3><?=Yii::t('main','Manzil')?> :</h3>
+                        </div>
+                        <div class="col-xs-8 contact-grdr-w3l">
+                            <ul>
+                                <li><a href="<?=$contact->location_url ?? '#'?>" target="_blank"><?=$contact->location?></a></li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="call">
+                        <div class="col-xs-4 contact-grdr-w3l">
+                            <h3>Mail us :</h3>
+                        </div>
+                        <div class="col-xs-8 contact-grdr-w3l">
+                            <ul>
+                                <li>
+                                    <a href="mailto:<?=$contact->mail?>"><?=$contact->mail?></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <!-- contact information -->
-        <div class="col-lg-5 col-md-offset-1 pull-right">
-            <h4>Contact Information</h4>
-            <ul class="contact-details">
-                <li><i class="fa fa-envelope"></i>Educate@email.com</li>
-                <li><i class="fa fa-phone"></i>122-547-223-45</li>
-                <li><i class="fa fa-map-marker"></i>4476 Clement Street</li>
-            </ul>
-            <!-- contact map -->
-            <div id="contact-map"></div>
-            <!-- /contact map -->
-        </div>
-        <!-- contact information -->
-    </div>
+            <div class="col-md-7 col-xs-7 contact-grid-agile">
+<!--                <form action="#" method="post">-->
+<!--                    <input type="text" placeholder="Name" name="name" required="">-->
+<!--                    <input type="email" placeholder="Email" name="email" required="">-->
+<!--                    <input type="text" placeholder="Subject" name="subject" required="">-->
+<!--                    <textarea placeholder="Message.." name="message" required=""></textarea>-->
+<!--                    <input type="submit" value="Send Now">-->
+<!--                </form>-->
+                <?php $form = ActiveForm::begin([
+                    'id' => 'contact-us',
+                    'action'=>Url::to(['contact'])
+                ]); ?>
 
+                <?= $form->field($model, 'name')->textInput(['placeholder' => $model->getAttributeLabel('name')])->label(false) ?>
+
+                <?= $form->field($model, 'email')->textInput(['placeholder' => $model->getAttributeLabel('email')])->label(false) ?>
+
+                <?=$form->field($model, 'phone')->widget(PhoneInput::className(), [
+                    'jsOptions' => [
+                        'preferredCountries' => ['uz', 'ru', 'kz', 'gb'],
+                    ]
+                ])->label(false);?>
+
+                <?= $form->field($model, 'text')->textarea(['placeholder' => $model->getAttributeLabel('text')])->label(false) ?>
+
+                <?= $form->field($model, 'captcha')->widget(Captcha::className(), [
+                    'template' => '<div class="row m-0"><div class="col-lg-3 mx-auto">{image}</div><div class="col-lg-9">{input}</div></div>',
+                    'captchaAction' => '/site/captcha'
+                ])->label(false)?>
+
+                <?= Html::submitButton('Send', ['class' => 'contact-grid-agile']) ?>
+
+                <?php ActiveForm::end(); ?>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
 </div>

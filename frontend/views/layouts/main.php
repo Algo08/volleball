@@ -2,12 +2,17 @@
 
 /* @var $this \yii\web\View */
 /* @var $content string */
+/* @var \common\models\Slide[] $slides */
 
+use cinghie\multilanguage\widgets\MultiLanguageWidget;
+use yii\bootstrap\Nav;
 use yii\helpers\Html;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
 use yii\helpers\Url;
 
+$slides = \common\models\Slide::find()->all();
+$contact = \common\models\Contact::find()->one();
 AppAsset::register($this);
 ?>
 
@@ -27,7 +32,7 @@ AppAsset::register($this);
 <!-- header -->
 <div class="header">
     <div class="header-left">
-        <div class="container">
+        <div class="container" style="padding: 0">
             <nav class="navbar navbar-default">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -39,7 +44,7 @@ AppAsset::register($this);
                     </button>
                     <div class="logo">
                         <h1>
-                            <a href="index.html">
+                            <a href="<?=Url::home()?>">
                                 Volleyball
                                 <img class="logo-position" src="<?=Url::to('@web/frontend/web/theme/img/logo4.png')?>" alt="" />
                             </a>
@@ -49,27 +54,32 @@ AppAsset::register($this);
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
-                    <nav class="link-effect-9" id="link-effect-9">
-                        <ul class="nav navbar-nav">
-                            <li class="active">
-                                <a class="hvr-overline-from-center scroll" href="index.html">Home</a>
-                            </li>
-                            <li>
-                                <a href="#about" class="hvr-overline-from-center scroll">About Us</a>
-                            </li>
-                            <li>
-                                <a href="#services" class="hvr-overline-from-center scroll">Services</a>
-                            </li>
-                            <li>
-                                <a href="#team" class="hvr-overline-from-center scroll">Instructors</a>
-                            </li>
-                            <li>
-                                <a href="#gallery" class="hvr-overline-from-center scroll">Gallery</a>
-                            </li>
-                            <li>
-                                <a href="#contact" class="hvr-overline-from-center scroll">Contact Us</a>
-                            </li>
-                        </ul>
+                    <nav class="link-effect-9 navbar-expand-lg" id="link-effect-9">
+                        <?php
+
+                        $menuItems = [
+                            ['label' => Yii::t('main','Bosh sahifa'), 'url' => ['/'], 'linkOptions'=>['class'=>'hvr-overline-from-center scroll']],
+                            ['label' => Yii::t('main','Yangiliklar'), 'url' => ['/#news'], 'linkOptions'=>['class'=>'hvr-overline-from-center scroll']],
+                            ['label' => Yii::t('main','Biz haqimizda'), 'url' => ['/#about'], 'linkOptions'=>['class'=>'hvr-overline-from-center scroll']],
+                            ['label' => Yii::t('main','Instructors'), 'url' => ['/#team'], 'linkOptions'=>['class'=>'hvr-overline-from-center scroll']],
+                            ['label' => Yii::t('main','Gallery'), 'url' => ['/#gallery'], 'linkOptions'=>['class'=>'hvr-overline-from-center scroll']],
+                        ];
+                        $menuItems[] =
+                            '<li>'.
+                                MultiLanguageWidget::widget([
+                                    'addCurrentLang' => false, // add current lang
+                                    'calling_controller' => $this->context,
+                                    'image_type' => 'classic', // classic or rounded
+                                    'link_home' => false, // true or false
+                                    'widget_type' => 'selector', // classic or selector
+                                    'width' => '20'
+                                ]).
+                            '</li>';
+
+                        echo Nav::widget([
+                            'options' => ['class' => 'nav navbar-nav text-right'],
+                            'items' => $menuItems,
+                        ]);?>
                     </nav>
                 </div>
                 <!-- /.navbar-collapse -->
@@ -83,6 +93,34 @@ AppAsset::register($this);
 
 
 <div>
+    <!-- banner-text -->
+    <div class="banner-text" style="background: url(<?=Url::to('@web/theme/img/b1.jpg')?>) no-repeat bottom;">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="slider">
+                <div class="callbacks_container">
+                    <ul class="rslides" id="slider3">
+                        <?php foreach ($slides as $slide):?>
+                        <li>
+                            <div class="banner-w3lstext">
+                                <h3><?=$slide->text_head?></h3>
+                                <p><?=$slide->text_part?></p>
+                                <div class="video-pop-wthree">
+                                    <a href="#small-dialog1" class="view play-icon popup-with-zoom-anim ">
+                                        <i class="fa fa-play-circle" aria-hidden="true"></i>Videoni ko'rish</a>
+                                    <div id="small-dialog1" class="mfp-hide w3ls_small_dialog wthree_pop">
+                                        <iframe src="<?=$slide->video?>"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <?php endforeach;?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //banner-text -->
     <?= Alert::widget() ?>
     <?= $content ?>
 </div>
@@ -100,13 +138,15 @@ AppAsset::register($this);
             <h4>Address</h4>
             <ul>
                 <li>
-                    <span class="glyphicon glyphicon-home" aria-hidden="true"></span> 738 Diamond Road, New York City</li>
-                <li>
-                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                    <a href="mailto:info@example.com">info@example.com</a>
+                    <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                    <a href="<?=$contact->location_url ?? '#'?>" target="_blank"><?=$contact->location?></a>
                 </li>
                 <li>
-                    <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> (0123) 0111 111 222</li>
+                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                    <a href="mailto:<?=$contact->mail?>"><?=$contact->mail?></a>
+                </li>
+                <li>
+                    <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <?=$contact->phone?></li>
                 <li>
                     <span class="glyphicon glyphicon-time" aria-hidden="true"></span> Mon-Sat 09:00 AM - 05:00PM </li>
             </ul>
@@ -163,10 +203,32 @@ AppAsset::register($this);
     <div class="clearfix"></div>
 </div>
 <!-- //footer -->
-
-
-
 <?php $this->endBody() ?>
+
+<?php
+$script = <<< JS
+// You can also use "$(window).load(function() {"
+    $(function () {
+        // Slideshow 4
+        $("#slider3").responsiveSlides({
+            auto: true,
+            pager: true,
+            nav: false,
+            speed: 500,
+            namespace: "callbacks",
+            before: function () {
+                $('.events').append("<li>before event fired.</li>");
+            },
+            after: function () {
+                $('.events').append("<li>after event fired.</li>");
+            }
+        });
+
+    });
+JS;
+$this->registerJs( $script );
+?>
+
 </body>
 </html>
 <?php $this->endPage() ?>

@@ -2,23 +2,22 @@
 /**
  * @var \common\models\News[] $news
  */
+
+use yii\helpers\Url;
+
 ?>
 
-<?php foreach ($news as $new):?>
-    <div class="col-lg-4 px-4 mb-5 col-12">
-        <div class="course">
-            <a href="<?= \yii\helpers\Url::to(['news-view','id'=>$new->id])?>" class="course-img">
-                <img src="<?=\yii\helpers\Url::to('@web'.$new->image_location)?>" alt="...">
-                <i class="course-link-icon fa fa-link"></i>
-            </a>
-            <a class="course-title" href="<?= \yii\helpers\Url::to(['news-view','id'=>$new->id])?>"><?=$new->text_head?></a>
-            <div class="course-details">
-                <span class="course-category">
-                    <?=date('M d, yy H:i',strtotime($new->create_date))?> |
-                    <span class="fa fa-comment-o h-100"> <?= $new->cOMMENTS?></span>
-                </span>
-                <a href="<?= \yii\helpers\Url::to(['news-view','id'=>$new->id])?>" class="course-price course-premium"><?= Yii::t('main', 'Batafsil')?></a>
-            </div>
+<!-- blog -->
+<div class="news-section">
+    <div class="container">
+        <h3 class="title">News
+            <img src="<?=Url::to('@web/frontend/web/theme/img/logo2.png')?>" alt="" />
+        </h3>
+        <div class="news-grids-w3l">
+            <?php foreach ($news as $new):?>
+                <?= $this->renderAjax('/news/news_card',['news'=>$new])?>
+            <?php endforeach;?>
         </div>
     </div>
-<?php endforeach;?>
+</div>
+<!-- //blog -->

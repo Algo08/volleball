@@ -10,26 +10,13 @@ return [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
-    'homeUrl' => '/geostudy/admin',
+    'homeUrl' => '/admin',
     'bootstrap' => ['log'],
     'modules' => [],
     'components' => [
 
-        'assetManager' => [
-            'bundles' => [
-                'yii\bootstrap\BootstrapPluginAsset' => [
-                    #  'js'=>[],
-                ],
-                'yii\bootstrap\BootstrapAsset' => [
-                    'css' => [],
-                ],
-                'yii\web\JqueryAsset' => [
-                    #'js'=>[]
-                ],
-            ],
-        ],
         'request' => [
-            'baseUrl' => '/geostudy/admin',
+            'baseUrl' => '/admin',
             'csrfParam' => '_csrf-backend',
         ],
         'user' => [

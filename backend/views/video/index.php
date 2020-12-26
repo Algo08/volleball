@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'name',
+            'text_uz',
             [
                 'attribute' => 'image',
                 'format' => 'html',
@@ -38,12 +38,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'Link',
                 'format' => 'html',
                 'value' => function ($data) {
-                    return Html::a('videoni kurish',$data['url'], ['target'=>'_blank']);
+                    return Html::a('videoni kurish',$data['video_link'], ['target'=>'_blank']);
                 },
             ],
-            'class',
-            'theme',
-            'lang',
             'create_date',
 
 

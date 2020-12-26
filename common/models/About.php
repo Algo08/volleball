@@ -51,7 +51,7 @@ class About extends \yii\db\ActiveRecord
     /**
      * @return string
      */
-    public function gettext(){
+    public function getText(){
         switch (Yii::$app->language){
             case 'ru': return $this->text_ru ?? $this->text_uz ;break;
             case 'en': return $this->text_en ?? $this->text_uz ;break;
