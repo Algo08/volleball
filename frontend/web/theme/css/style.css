@@ -140,7 +140,10 @@ label {
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
     font-weight: 400;
-    padding: 0 15px 15px;
+    padding: 15px 15px;
+}
+.lang-selected{
+    margin: auto;
 }
 
 .navbar {
@@ -170,6 +173,14 @@ background-color: rgba(0,0,0,0) !important;
 }
 .header-left {
     margin-top: 10px;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{
+    background-color: rgba(0,0,0,0) !important;
+}
+
+.dropdown-menu .about{
+    padding: 10px !important;
 }
 
 /* Overline From Center */
@@ -581,8 +592,20 @@ h3.title {
 /*-- stats --*/
 
 .stats {
-    background: url(../img/bg.jpg) no-repeat 0px 0px;
+    position: relative;
     padding: 100px 0;
+    background: url(../img/bg.jpg) no-repeat 0px 0px;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    background-attachment: fixed;
+}
+.partners {
+    position: relative;
+    padding: 25px 0;
+    background: url(../img/bg.jpg) no-repeat 0px 0px;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -1914,6 +1937,12 @@ button.contact-grid-agile:hover {
 }
 
 @media(max-width: 640px) {
+    navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{
+        color: white;
+    }
+    .dropdown-menu .about{
+        color: white !important;
+    }
     .banner-text {
         min-height: 400px;
     }

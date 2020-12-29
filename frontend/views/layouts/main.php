@@ -3,9 +3,11 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 /* @var \common\models\Slide[] $slides */
+/* @var \common\models\About[] $about */
 
 use cinghie\multilanguage\widgets\MultiLanguageWidget;
 use yii\bootstrap\Nav;
+use yii\bootstrap\Dropdown;
 use yii\helpers\Html;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
@@ -13,6 +15,13 @@ use yii\helpers\Url;
 
 $slides = \common\models\Slide::find()->all();
 $contact = \common\models\Contact::find()->one();
+$about = \common\models\About::find()->all();
+$partners = \common\models\Partners::find()->all();
+
+$itemAbout = [];
+foreach ($about as $key=>$item){
+    $itemAbout[$key] = ['label' => $item->name, 'url' => Url::to(['about/view','id'=>$item->id]), 'linkOptions'=>['class'=>'hvr-overline-from-center scroll about text-center']];
+}
 AppAsset::register($this);
 ?>
 
@@ -60,12 +69,18 @@ AppAsset::register($this);
                         $menuItems = [
                             ['label' => Yii::t('main','Bosh sahifa'), 'url' => ['/'], 'linkOptions'=>['class'=>'hvr-overline-from-center scroll']],
                             ['label' => Yii::t('main','Yangiliklar'), 'url' => ['/#news'], 'linkOptions'=>['class'=>'hvr-overline-from-center scroll']],
-                            ['label' => Yii::t('main','Biz haqimizda'), 'url' => ['/#about'], 'linkOptions'=>['class'=>'hvr-overline-from-center scroll']],
+//                            ['label' => Yii::t('main','Biz haqimizda'), 'url' => ['/#about'], 'linkOptions'=>['class'=>'hvr-overline-from-center scroll']],
                             ['label' => Yii::t('main','Instructors'), 'url' => ['/#team'], 'linkOptions'=>['class'=>'hvr-overline-from-center scroll']],
                             ['label' => Yii::t('main','Gallery'), 'url' => ['/#gallery'], 'linkOptions'=>['class'=>'hvr-overline-from-center scroll']],
                         ];
                         $menuItems[] =
-                            '<li>'.
+                            '<li>
+                                <a href="#" data-toggle="dropdown" class="hvr-overline-from-center scroll">'.Yii::t('main','Biz haqimizda').'</a>
+                                '.Dropdown::widget([
+                                'items' => $itemAbout,
+                            ])
+                            .' 
+                            </li><li>'.
                                 MultiLanguageWidget::widget([
                                     'addCurrentLang' => false, // add current lang
                                     'calling_controller' => $this->context,
@@ -73,11 +88,10 @@ AppAsset::register($this);
                                     'link_home' => false, // true or false
                                     'widget_type' => 'selector', // classic or selector
                                     'width' => '20'
-                                ]).
-                            '</li>';
+                                ]).'</li>';
 
                         echo Nav::widget([
-                            'options' => ['class' => 'nav navbar-nav text-right'],
+                            'options' => ['class' => 'nav navbar-nav col-12'],
                             'items' => $menuItems,
                         ]);?>
                     </nav>
@@ -99,10 +113,9 @@ AppAsset::register($this);
         <div class="container">
             <div class="slider">
                 <div class="callbacks_container">
-                    <ul class="rslides" id="slider3">
+                    <div class="owl-main-slider owl-carousel">
                         <?php foreach ($slides as $slide):?>
-                        <li>
-                            <div class="banner-w3lstext">
+                            <div class="item p-5 banner-w3lstext">
                                 <h3><?=$slide->text_head?></h3>
                                 <p><?=$slide->text_part?></p>
                                 <div class="video-pop-wthree">
@@ -113,9 +126,8 @@ AppAsset::register($this);
                                     </div>
                                 </div>
                             </div>
-                        </li>
                         <?php endforeach;?>
-                    </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -125,6 +137,7 @@ AppAsset::register($this);
     <?= $content ?>
 </div>
 
+<?= $this->render('../site/partners',['partners'=>$partners])?>
 <!-- footer -->
 <div class="footer">
     <div class="container">
@@ -205,29 +218,7 @@ AppAsset::register($this);
 <!-- //footer -->
 <?php $this->endBody() ?>
 
-<?php
-$script = <<< JS
-// You can also use "$(window).load(function() {"
-    $(function () {
-        // Slideshow 4
-        $("#slider3").responsiveSlides({
-            auto: true,
-            pager: true,
-            nav: false,
-            speed: 500,
-            namespace: "callbacks",
-            before: function () {
-                $('.events').append("<li>before event fired.</li>");
-            },
-            after: function () {
-                $('.events').append("<li>after event fired.</li>");
-            }
-        });
 
-    });
-JS;
-$this->registerJs( $script );
-?>
 
 </body>
 </html>

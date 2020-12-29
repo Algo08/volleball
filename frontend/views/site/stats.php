@@ -4,7 +4,7 @@
  **/
 
 ?>
-<div class="stats" style="position: relative">
+<div class="stats">
     <div class="overlay"></div>
     <div class="container">
         <div class="stats-info">

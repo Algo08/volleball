@@ -26,18 +26,21 @@ use yii\widgets\ActiveForm;
 
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <?= $form->field($model, 'name_uz')->textInput()?>
             <?= $form->field($model, 'text_uz')->widget(Summernote::className(), [
                 'clientOptions' => [
                 ]
             ])?>
         </div>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <?= $form->field($model, 'name_ru')->textInput()?>
             <?= $form->field($model, 'text_ru')->widget(Summernote::className(), [
                 'clientOptions' => [
                 ]
             ])?>
         </div>
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+            <?= $form->field($model, 'name_en')->textInput()?>
             <?= $form->field($model, 'text_en')->widget(Summernote::className(), [
                 'clientOptions' => [
                 ]

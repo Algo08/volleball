@@ -13,9 +13,9 @@ class AboutController extends \yii\web\Controller
         return $this->render('index');
     }
 
-    public function actionView()
+    public function actionView($id)
     {
-        $model = About::find()->one();
+        $model = About::findOne($id);
         return $this->render('view',['model'=>$model]);
     }
 

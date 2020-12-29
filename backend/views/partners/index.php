@@ -6,25 +6,29 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Biz haqimizda';
+$this->title = 'Partners';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="about-index">
+<div class="partners-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
+
     <p>
-        <?= Html::a('Create About', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Partners', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
+
+
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
+            'id',
             'name',
-            [
-                'attribute'=>'text',
-                'format' => 'raw',
-            ],
+            'url:url',
+            'image_location',
+            'sequence',
+            //'show',
 
             ['class' => 'yii\grid\ActionColumn',
                 'contentOptions'=>['class'=> 'text-center', 'style'=>'width: 160px'],

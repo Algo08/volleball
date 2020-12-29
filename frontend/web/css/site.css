@@ -17,7 +17,6 @@ body {
     padding: 70px 15px 20px;
 }
 
-
 .jumbotron {
     text-align: center;
     background-color: transparent;
@@ -45,7 +44,6 @@ body {
     padding-left: 5px;
     content: "\f105";
 }
-
 
 a.asc:after {
     content: "\f107" !important;
