@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\About;
+use common\models\Partners;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * AboutController implements the CRUD actions for About model.
+ * PartnersController implements the CRUD actions for Partners model.
  */
-class AboutController extends Controller
+class PartnersController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,13 +30,13 @@ class AboutController extends Controller
     }
 
     /**
-     * Lists all About models.
+     * Lists all Partners models.
      * @return mixed
      */
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => About::find(),
+            'query' => Partners::find(),
         ]);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class AboutController extends Controller
     }
 
     /**
-     * Displays a single About model.
+     * Displays a single Partners model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,15 +58,21 @@ class AboutController extends Controller
     }
 
     /**
-     * Creates a new Contact model.
+     * Creates a new Partners model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new About();
+        $model = new Partners();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $model->imageFile = \fv\yii\croppie\UploadedFile::getInstance($model, 'imageFile');
+
+            if ($model->upload()) {
+                $model->imageFile = null;
+            }
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -75,9 +81,8 @@ class AboutController extends Controller
         ]);
     }
 
-
     /**
-     * Updates an existing About model.
+     * Updates an existing Partners model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -87,7 +92,13 @@ class AboutController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $model->imageFile = \fv\yii\croppie\UploadedFile::getInstance($model, 'imageFile');
+
+            if ($model->upload()) {
+                $model->imageFile = null;
+            }
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -96,17 +107,30 @@ class AboutController extends Controller
         ]);
     }
 
+    /**
+     * Deletes an existing Partners model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param integer $id
+     * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    public function actionDelete($id)
+    {
+        $this->findModel($id)->delete();
+
+        return $this->redirect(['index']);
+    }
 
     /**
-     * Finds the About model based on its primary key value.
+     * Finds the Partners model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return About the loaded model
+     * @return Partners the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = About::findOne($id)) !== null) {
+        if (($model = Partners::findOne($id)) !== null) {
             return $model;
         }
 

@@ -88,6 +88,11 @@
     </li>
 
     <li class="nav-item">
+        <a class="nav-link" href="<?=\yii\helpers\Url::to('@web/partners')?>">
+            <i class="fas fa-hands-helping"></i>
+            <span>Hamkorlarimiz</span></a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="<?=\yii\helpers\Url::to('@web/contact')?>">
             <i class="fas fa-phone-alt"></i>
             <span>Bog'lanish</span></a>
