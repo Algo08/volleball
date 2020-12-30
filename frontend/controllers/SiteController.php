@@ -87,7 +87,9 @@ class SiteController extends Controller
         $count = Count::find()->all();
         $trainer = Trainer::find()->all();
         $contact = Contact::find()->one();
+        $slides = \common\models\Slide::find()->all();
         return $this->render('index',[
+            'slides'=>$slides,
             'news'=>$news,
             'pictures'=>$pictures,
             'count'=>$count,

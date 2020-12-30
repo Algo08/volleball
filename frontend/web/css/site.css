@@ -498,3 +498,15 @@ label .glyphicon {
         background-color: #FFF
     }
 }
+.breadcrumb{
+    background-color: rgba(0,0,0,0);
+    font-size: 2rem;
+    text-align: center;
+}
+.breadcrumb li.active{
+    color: white;
+    opacity: 0.7;
+}
+.breadcrumb a{
+    color: white;
+}
