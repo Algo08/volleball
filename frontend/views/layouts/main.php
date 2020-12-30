@@ -2,7 +2,6 @@
 
 /* @var $this \yii\web\View */
 /* @var $content string */
-/* @var \common\models\Slide[] $slides */
 /* @var \common\models\About[] $about */
 
 use cinghie\multilanguage\widgets\MultiLanguageWidget;
@@ -13,7 +12,6 @@ use frontend\assets\AppAsset;
 use common\widgets\Alert;
 use yii\helpers\Url;
 
-$slides = \common\models\Slide::find()->all();
 $contact = \common\models\Contact::find()->one();
 $about = \common\models\About::find()->all();
 $partners = \common\models\Partners::find()->all();
@@ -107,31 +105,7 @@ AppAsset::register($this);
 
 
 <div>
-    <!-- banner-text -->
-    <div class="banner-text" style="background: url(<?=Url::to('@web/theme/img/b1.jpg')?>) no-repeat bottom;">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="slider">
-                <div class="callbacks_container">
-                    <div class="owl-main-slider owl-carousel">
-                        <?php foreach ($slides as $slide):?>
-                            <div class="item p-5 banner-w3lstext">
-                                <h3><?=$slide->text_head?></h3>
-                                <p><?=$slide->text_part?></p>
-                                <div class="video-pop-wthree">
-                                    <a href="#small-dialog1" class="view play-icon popup-with-zoom-anim ">
-                                        <i class="fa fa-play-circle" aria-hidden="true"></i>Videoni ko'rish</a>
-                                    <div id="small-dialog1" class="mfp-hide w3ls_small_dialog wthree_pop">
-                                        <iframe src="<?=$slide->video?>"></iframe>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endforeach;?>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <!-- //banner-text -->
     <?= Alert::widget() ?>
     <?= $content ?>

@@ -32,7 +32,7 @@ var siteCarousel = function () {
             nav: false,
             dots: false,
             responsive:{
-                1000:{
+                0:{
                     items:1
                 }
             }
