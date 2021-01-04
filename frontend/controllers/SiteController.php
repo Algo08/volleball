@@ -6,7 +6,9 @@ use common\models\Count;
 use common\models\Gallery;
 use common\models\Message;
 use common\models\News;
+use common\models\Slide;
 use common\models\Trainer;
+use common\models\Video;
 use Yii;
 use yii\bootstrap\ActiveForm;
 use yii\web\Controller;
@@ -87,14 +89,16 @@ class SiteController extends Controller
         $count = Count::find()->all();
         $trainer = Trainer::find()->all();
         $contact = Contact::find()->one();
-        $slides = \common\models\Slide::find()->all();
+        $slides = Slide::find()->all();
+        $videos = Video::find()->limit(6)->all();
         return $this->render('index',[
             'slides'=>$slides,
             'news'=>$news,
             'pictures'=>$pictures,
             'count'=>$count,
             'trainer'=>$trainer,
-            'contact'=>$contact
+            'contact'=>$contact,
+            'videos'=>$videos
         ]);
     }
 

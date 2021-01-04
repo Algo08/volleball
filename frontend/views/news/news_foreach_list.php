@@ -15,7 +15,7 @@ use yii\helpers\Url;
         </h3>
         <div class="news-grids-w3l">
             <?php foreach ($news as $new):?>
-                <?= $this->renderAjax('/news/news_card',['news'=>$new])?>
+                <?= $this->render('/news/news_card',['news'=>$new])?>
             <?php endforeach;?>
         </div>
     </div>
