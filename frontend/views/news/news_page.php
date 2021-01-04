@@ -24,7 +24,7 @@ $this->title = Yii::t('main', 'Yangiliklar');
 </div>
 <div class="container-fluid section container" id="news-blog">
     <div class="row m-0"  id="news">
-        <?= $this->renderAjax('news_foreach_list',['news'=>$news])?>
+        <?= $this->render('news_foreach_list',['news'=>$news])?>
     </div>
     <h2 class="text-center page-header">
         <small class="other font-weight-light btn btn-lg" data-value="<?=$key?>"><?= Yii::t('main','Yana yangiliklar')?></small>

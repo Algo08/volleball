@@ -4,6 +4,7 @@
  * @var $this yii\web\View *
  * @var \common\models\News[] $news
  * @var \common\models\Gallery[] $pictures
+ * @var \common\models\Video[] $videos
  * @var \common\models\Count[] $count
  * @var \common\models\Trainer[] $trainer
  * @var \common\models\Contact $contact
@@ -54,7 +55,7 @@ $this->title = 'Volleyball';
         </h3>
         <div class="news-grids-w3l">
             <?php foreach ($news as $new):?>
-                <?= $this->renderAjax('/news/news_card',['news'=>$new])?>
+                <?= $this->render('/news/news_card',['news'=>$new])?>
             <?php endforeach;?>
         </div>
         <div class="col-sm-12 text-center">
@@ -87,12 +88,35 @@ $this->title = 'Volleyball';
         <div class="gallery-main">
             <div class="gallery-bott">
                 <?php foreach ($pictures as $g):?>
-                    <?= $this->renderAjax('/gallery/photo',['gallery'=>$g])?>
+                    <?= $this->render('/gallery/photo',['gallery'=>$g])?>
                 <?php endforeach;?>
                 <div class="clearfix"> </div>
             </div>
+            <hr>
             <div class="col-sm-12 text-center">
-                <a class="all" href="<?=Url::to(['/gallery#gallery-blog'])?>">Barchasi</a>
+                <a class="all" href="<?=Url::to(['/gallery'])?>">Barchasi</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //gallery -->
+
+<!-- gallery -->
+<div class="gallery" id="video">
+    <div class="container">
+        <h3 class="title">Videos
+            <img src="<?=Url::to('@web/frontend/web/theme/img/logo2.png')?>" alt="" />
+        </h3>
+        <div class="video-main">
+            <div class="video-bott">
+                <?php foreach ($videos as $video):?>
+                    <?= $this->render('/video/video',['video'=>$video])?>
+                <?php endforeach;?>
+                <div class="clearfix"> </div>
+            </div>
+            <hr>
+            <div class="col-sm-12 text-center">
+                <a class="all" href="<?=Url::to(['/video'])?>">Barchasi</a>
             </div>
         </div>
     </div>

@@ -1,110 +1,71 @@
 <?php
 /**
  * @var \common\models\Video[] $videos
- * @var yii\data\ActiveDataProvider $dataProvider
+ * @var integer $key
  */
+
 use yii\helpers\Url;
 
-$this->title = Yii::t('main','Video darslar');
+$this->title = Yii::t('main', 'Video');
+
 ?>
-    <div class="hero-area section">
-        <!-- Backgound Image -->
-        <div class="bg-image bg-parallax overlay" style="background-image:url(<?=Url::to('@web/frontend/web/theme/img/page-background.jpg')?>)"></div>
-        <!-- /Backgound Image -->
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1 text-center">
-                    <ul class="hero-area-tree">
-                        <li><a href="<?= Yii::$app->homeUrl?>"><?=Yii::t('main','Bosh sahifa')?></a></li>
-                        <li><?=$this->title?></li>
-                    </ul>
-                    <h1 class="white-text" id="title"><?=$this->title?></h1>
-                </div>
+<!-- banner-text -->
+<div class="banner-text" style="background: url(<?=Url::to('@web/theme/img/b1.jpg')?>) no-repeat bottom; min-height: 250px">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="slider">
+            <div class="callbacks_container" style="margin: 100px">
+                <ol class="breadcrumb">
+                    <li><a href="<?= Yii::$app->homeUrl?>"><?=Yii::t('main','Bosh sahifa')?></a></li>
+                    <li class="active"><?=$this->title?></li>
+                </ol>
             </div>
         </div>
     </div>
-    <div id="blog" class="section">
-
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            <div class="row">
-
-                <!-- main blog -->
-                <div id="main" class="col-lg-9 col-md-8">
-                    <?= $this->renderAjax('list_view',['dataProvider'=>$dataProvider])?>
-                </div>
-                <!-- /main blog -->
-
-                <!-- aside blog -->
-                <div id="aside" class="col-lg-3 col-md-4 pr-0">
-                    <!-- language widget -->
-                    <div class="switch">
-                        <input name="switch" id="one" type="radio" value="uz"/>
-                        <label for="one" class="switch__label">Uz</label>
-                        <input name="switch" id="two" type="radio" value="ru" />
-                        <label for="two" class="switch__label">Ru</label>
-                        <input name="switch" id="three" type="radio" value="ko" />
-                        <label for="three" class="switch__label" >Ko</label>
-                        <div class="switch__indicator" /></div>
-                </div>
-                <!-- /language widget -->
-
-                <!-- category widget -->
-                <div class="widget category-widget">
-                    <h3><?= Yii::t('main','Sinflar')?></h3>
-                    <?php foreach ($videos as $video):?>
-                        <a class="category filter" href="#aside" data-key="<?=$video->class?>">
-                            <?= $video->class == 11 ? Yii::t('main','Boshqa') : Yii::t('main','{0,number} sinf',$video->class);?>
-                            <span><?=$video->cnt?></span></a>
-                    <?php endforeach;?>
-                </div>
-                <!-- /category widget -->
-
-
-            </div>
-            <!-- /aside blog -->
-
-        </div>
-        <!-- row -->
-
+</div><div class="container-fluid news-section container">
+    <h3 class="title">Video
+        <img src="<?=Url::to('@web/frontend/web/theme/img/logo2.png')?>" alt="" />
+    </h3>
+    <div class="row m-0"  id="video">
+        <?= $this->renderAjax('foreach_list',['videos'=>$videos])?>
     </div>
-    <!-- container -->
-
-    </div>
-
+    <h2 class="text-center page-header">
+        <small class="other font-weight-light btn btn-lg" data-value="<?=$key?>"><?= Yii::t('main','Yana rasmlar')?></small>
+        <i class="fa fa-spinner" id="loading" style="opacity: 0;"></i>
+    </h2>
+</div>
 <?php
-$urlVideo = \yii\helpers\Url::to('view');
-
+$urlVideos = \yii\helpers\Url::to(['other-videos']);
+$hammasi = Yii::t('main', 'Hammasi shular');
 $script = <<< JS
-    $('.category.dropdown').click(function (){
-        $('.max-h-auto').removeClass('max-h-auto');
-        $(this).next('.dropdown-list').addClass('max-h-auto');
-    });
 
-    $(document).ajaxStart(function(){
-        $('#preloader1').css('display', 'block');
-    }).ajaxStop(function(){
-        $('#preloader1').css('display', 'none');
-    });
-    var filter = $('.category.filter');
-    var coursesDiv = $('#main');
-    filter.click(function (e){
-            e.preventDefault();
-            var sinf = $(this).data('key');
-            var lang = $('input[name="switch"]:checked').val();
+$(document).ajaxStart(function(){
+    $('#loading').css('opacity', '1');
+ }).ajaxStop(function(){
+    $('#loading').css('opacity', '0');
+ });
+var btnLast = $('.other.font-weight-light');
+var videoDiv = $('#video');
+var keyNumber = btnLast.data('value');
+        btnLast.on('click',function(event) {
+            event.preventDefault();
             $.ajax({
-                url: '$urlVideo',
-                data: {
-                    sinf: sinf,
-                    lang: lang
-                },
-                success: function(result) {
-                    coursesDiv.html(result);
-                }
+                url: '$urlVideos',
+                data:{
+                    key: keyNumber,
+                }, 
+                success: function (data) {
+                    if(data == 0){    
+                        btnLast.html('$hammasi'); 
+                    }
+                    else {
+                        videoDiv.html(videoDiv.html()+data);
+                        keyNumber += 3;
+                    }   
+                 }
             });
-                
         });
+      
 JS;
 $this->registerJs( $script );
 ?>

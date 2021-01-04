@@ -510,3 +510,13 @@ label .glyphicon {
 .breadcrumb a{
     color: white;
 }
+.open .dropdown-menu{
+    min-width: 100%;
+}
+.open .head-list.dropdown-menu {
+    width: 150px;
+    margin-left: -50px !important;
+}
+#about{
+    padding: 10vh 0;
+}

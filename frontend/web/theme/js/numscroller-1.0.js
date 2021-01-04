@@ -42,6 +42,8 @@
             $(this).addClass('scrollzip');
             if ( $.isFunction( settings.showFunction ) ){
                 if(
+                    $('#scrollzipPoint').length &&
+                    $(this).length &&
                     !$(this).hasClass('isShown')&&
                     ($(window).outerHeight()+$('#scrollzipPoint').offset().top-settings.showShift)>($(this).offset().top+((settings.wholeVisible)?$(this).outerHeight():0))&&
                     ($('#scrollzipPoint').offset().top+((settings.wholeVisible)?$(this).outerHeight():0))<($(this).outerHeight()+$(this).offset().top-settings.showShift)
@@ -52,6 +54,8 @@
             }
             if ( $.isFunction( settings.hideFunction ) ){
                 if(
+                    $('#scrollzipPoint').length &&
+                    $(this).length &&
                     $(this).hasClass('isShown')&&
                     (($(window).outerHeight()+$('#scrollzipPoint').offset().top-settings.hideShift)<($(this).offset().top+((settings.wholeVisible)?$(this).outerHeight():0))||
                     ($('#scrollzipPoint').offset().top+((settings.wholeVisible)?$(this).outerHeight():0))>($(this).outerHeight()+$(this).offset().top-settings.hideShift))

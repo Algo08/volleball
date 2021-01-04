@@ -95,7 +95,7 @@ body{
 #Choco_loading{
 	width:9px;
 	height:11px;
-	background-image:url(../img/loading.gif);
+	background-image:url(../img/loading.gif) !important;
 	background-repeat:no-repeat;
 	z-index:1002;
 	cursor:pointer;
