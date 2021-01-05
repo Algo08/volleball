@@ -12,6 +12,11 @@ use Yii;
  * @property string $location
  * @property string $location_url
  * @property string $mail
+ * @property string $facebook
+ * @property string $youtube
+ * @property string $instagram
+ * @property string $twitter
+ * @property string $telegram
  */
 class Contact extends \yii\db\ActiveRecord
 {
@@ -32,7 +37,7 @@ class Contact extends \yii\db\ActiveRecord
             [['phone', 'location', 'mail'], 'required'],
             [['location_url'], 'string'],
             [['mail'],'email'],
-            [['phone', 'mail','location'], 'string', 'max' => 100],
+            [['phone', 'mail', 'location', 'facebook', 'youtube', 'instagram', 'twitter',], 'string', 'max' => 100],
         ];
     }
 
@@ -47,6 +52,11 @@ class Contact extends \yii\db\ActiveRecord
             'location' => 'Location',
             'location_url' => 'Location Url',
             'mail' => 'Mail',
+            'facebook' => 'facebook',
+            'telegram' => 'telegram',
+            'instagram' => 'instagram',
+            'twitter' => 'twitter',
+            'youtube' => 'youtube',
         ];
     }
 }
