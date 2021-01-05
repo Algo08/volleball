@@ -68,8 +68,8 @@ AppAsset::register($this);
                             ['label' => Yii::t('main','Bosh sahifa'), 'url' => ['/'], 'linkOptions'=>['class'=>'hvr-overline-from-center scroll']],
                             ['label' => Yii::t('main','Yangiliklar'), 'url' => ['/#news'], 'linkOptions'=>['class'=>'hvr-overline-from-center scroll']],
 //                            ['label' => Yii::t('main','Biz haqimizda'), 'url' => ['/#about'], 'linkOptions'=>['class'=>'hvr-overline-from-center scroll']],
-                            ['label' => Yii::t('main','Instructors'), 'url' => ['/#team'], 'linkOptions'=>['class'=>'hvr-overline-from-center scroll']],
-                            ['label' => Yii::t('main','Gallery'), 'url' => ['/#gallery'], 'linkOptions'=>['class'=>'hvr-overline-from-center scroll']],
+                            ['label' => Yii::t('main','Murabbiylar'), 'url' => ['/#team'], 'linkOptions'=>['class'=>'hvr-overline-from-center scroll']],
+                            ['label' => Yii::t('main','Rasmlar'), 'url' => ['/#gallery'], 'linkOptions'=>['class'=>'hvr-overline-from-center scroll']],
                         ];
                         $menuItems[] =
                             '<li>
@@ -139,51 +139,27 @@ AppAsset::register($this);
             </ul>
         </div>
         <div class="col-xs-4 agileinfo_footer_grid">
-            <h4>Instagram Posts</h4>
-            <div class="agileinfo_footer_grid1">
-                <a href="#">
-                    <img src="<?=Url::to('@web/frontend/web/theme/img/f1.jpg')?>" alt=" " class="img-responsive">
-                </a>
-            </div>
-            <div class="agileinfo_footer_grid1">
-                <a href="#">
-                    <img src="<?=Url::to('@web/frontend/web/theme/img/f2.jpg')?>" alt=" " class="img-responsive">
-                </a>
-            </div>
-            <div class="agileinfo_footer_grid1">
-                <a href="#">
-                    <img src="<?=Url::to('@web/frontend/web/theme/img/f3.jpg')?>" alt=" " class="img-responsive">
-                </a>
-            </div>
-            <div class="agileinfo_footer_grid1">
-                <a href="#">
-                    <img src="<?=Url::to('@web/frontend/web/theme/img/f4.jpg')?>" alt=" " class="img-responsive">
-                </a>
-            </div>
-            <div class="agileinfo_footer_grid1">
-                <a href="#">
-                    <img src="<?=Url::to('@web/frontend/web/theme/img/f5.jpg')?>" alt=" " class="img-responsive">
-                </a>
-            </div>
-            <div class="agileinfo_footer_grid1">
-                <a href="#">
-                    <img src="<?=Url::to('@web/frontend/web/theme/img/f6.jpg')?>" alt=" " class="img-responsive">
-                </a>
-            </div>
-            <div class="clearfix"> </div>
+            <h4>Ijtimoiy tarmoqlar</h4>
+            <a class="col-xs-2" href="#">
+                <i class="fa fa-facebook" style="font-size: 25px;"></i>
+            </a>
+            <a class="col-xs-2" href="#">
+                <i class="fa fa-youtube" style="font-size: 25px;"></i>
+            </a>
+            <a class="col-xs-2" href="#">
+                <i class="fa fa-paper-plane" style="font-size: 25px;"></i>
+            </a>
+            <a class="col-xs-2" href="#">
+                <i class="fa fa-instagram" style="font-size: 25px;"></i>
+            </a>
+            <a class="col-xs-2" href="#">
+                <i class="fa fa-twitter" style="font-size: 25px;"></i>
+            </a>
         </div>
         <div class="clearfix"> </div>
-        <div class=" newsletter">
-            <h4>Subscribe Here</h4>
-            <form action="#" method="post" class="newsletter">
-                <input class="email" type="email" name="email" placeholder="Your email...">
-                <input type="submit" class="submit" value="subscribe">
-            </form>
-            <div class="clearfix"> </div>
-        </div>
+        
         <div class="w3agile_footer_copy">
-            <p>© 2018 Tennis Hub. All rights reserved | Design by
-                <a href="http://w3layouts.com/">W3layouts.</a>
+            <p>© 2020 Volleyball. All rights reserved
             </p>
         </div>
     </div>

@@ -32,13 +32,6 @@ $this->title = 'Volleyball';
                         <div class="item p-5 banner-w3lstext">
                             <h3><?=$slide->text_head?></h3>
                             <p><?=$slide->text_part?></p>
-                            <div class="video-pop-wthree">
-                                <a href="#small-dialog1" class="view play-icon popup-with-zoom-anim ">
-                                    <i class="fa fa-play-circle" aria-hidden="true"></i>Videoni ko'rish</a>
-                                <div id="small-dialog1" class="mfp-hide w3ls_small_dialog wthree_pop">
-                                    <iframe src="<?=$slide->video?>"></iframe>
-                                </div>
-                            </div>
                         </div>
                     <?php endforeach;?>
                 </div>
@@ -69,15 +62,6 @@ $this->title = 'Volleyball';
 <?= $this->render('stats',['count'=>$count])?>
 <!-- //stats -->
 
-<!-- services -->
-<?= $this->render('services')?>
-
-<!-- //services -->
-
-<!-- team -->
-<?= $this->render('team',['trainer'=>$trainer])?>
-<!-- //team -->
-
 
 <!-- gallery -->
 <div class="gallery" id="gallery">
@@ -100,6 +84,18 @@ $this->title = 'Volleyball';
     </div>
 </div>
 <!-- //gallery -->
+
+<!-- services -->
+<?/*= $this->render('services')*/?>
+
+<!-- //services -->
+
+<!-- team -->
+<?= $this->render('team',['trainer'=>$trainer])?>
+<!-- //team -->
+
+
+
 
 <!-- gallery -->
 <div class="gallery" id="video">
