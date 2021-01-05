@@ -3,6 +3,7 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 /* @var \common\models\About[] $about */
+/* @var \common\models\Contact $contact */
 
 use cinghie\multilanguage\widgets\MultiLanguageWidget;
 use yii\bootstrap\Nav;
@@ -140,24 +141,24 @@ AppAsset::register($this);
         </div>
         <div class="col-xs-4 agileinfo_footer_grid">
             <h4>Ijtimoiy tarmoqlar</h4>
-            <a class="col-xs-2" href="#">
+            <a class="col-xs-2" href="<?=$contact->facebook?>">
                 <i class="fa fa-facebook" style="font-size: 25px;"></i>
             </a>
-            <a class="col-xs-2" href="#">
+            <a class="col-xs-2" href="<?=$contact->youtube?>">
                 <i class="fa fa-youtube" style="font-size: 25px;"></i>
             </a>
-            <a class="col-xs-2" href="#">
+            <a class="col-xs-2" href="<?=$contact->telegram?>">
                 <i class="fa fa-paper-plane" style="font-size: 25px;"></i>
             </a>
-            <a class="col-xs-2" href="#">
+            <a class="col-xs-2" href="<?=$contact->instagram?>">
                 <i class="fa fa-instagram" style="font-size: 25px;"></i>
             </a>
-            <a class="col-xs-2" href="#">
+            <a class="col-xs-2" href="<?=$contact->twitter?>">
                 <i class="fa fa-twitter" style="font-size: 25px;"></i>
             </a>
         </div>
         <div class="clearfix"> </div>
-        
+
         <div class="w3agile_footer_copy">
             <p>© 2020 Volleyball. All rights reserved
             </p>
