@@ -86,8 +86,24 @@ $this->title = 'Volleyball';
 <!-- //gallery -->
 
 <!-- services -->
-<?/*= $this->render('services')*/?>
-
+<div class="services" id="services">
+    <div class="container">
+        <h3 class="title">Hujjatlar
+            <img src="<?=Url::to('@web/frontend/web/theme/img/logo2.png')?>" alt="" />
+        </h3>
+        <div class="agileits_updates_grid_right">
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <?php foreach ($documents as $document):?>
+                    <?= $this->render('/documents/list_view_item',['model'=>$document])?>
+                <?php endforeach;?>
+            </div>
+        </div>
+        <div class="col-sm-12 text-center">
+            <a class="all" href="<?=Url::to(['/documents'])?>">Barchasi</a>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
 <!-- //services -->
 
 <!-- team -->
