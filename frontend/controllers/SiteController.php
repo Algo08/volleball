@@ -3,6 +3,7 @@ namespace frontend\controllers;
 
 use common\models\Contact;
 use common\models\Count;
+use common\models\Documents;
 use common\models\Gallery;
 use common\models\Message;
 use common\models\News;
@@ -91,6 +92,7 @@ class SiteController extends Controller
         $contact = Contact::find()->one();
         $slides = Slide::find()->all();
         $videos = Video::find()->limit(6)->all();
+        $documents = Documents::find()->orderBy(['create_date'=>SORT_DESC])->limit(5)->all();
         return $this->render('index',[
             'slides'=>$slides,
             'news'=>$news,
@@ -98,7 +100,8 @@ class SiteController extends Controller
             'count'=>$count,
             'trainer'=>$trainer,
             'contact'=>$contact,
-            'videos'=>$videos
+            'videos'=>$videos,
+            'documents'=>$documents
         ]);
     }
 

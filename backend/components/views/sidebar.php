@@ -63,6 +63,12 @@
             <span>Rasmlar</span></a>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link" href="<?=\yii\helpers\Url::to('@web/documents')?>">
+            <i class="fa fa-fw fa-book-open"></i>
+            <span>Hujjatlar</span></a>
+    </li>
+
 
 
     <!-- Divider -->

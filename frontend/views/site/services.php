@@ -102,8 +102,26 @@ use yii\helpers\Url;
                         </div>
                     </div>
                 </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingFive">
+                        <h4 class="panel-title asd">
+                            <a class="pa_italic collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false"
+                               aria-controls="collapseFive">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                <i class="glyphicon glyphicon-minus" aria-hidden="true"></i>excepturi sint cliche reprehenderit
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                        <div class="panel-body panel_text">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
+                            non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+        <a href="<?=Url::to(['/documents'])?>">all</a>
         <div class="clearfix"> </div>
     </div>
 </div>
