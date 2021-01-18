@@ -7,8 +7,8 @@ use yii\helpers\Url;
 ?>
 <div class="gallery" id="gallery">
     <div class="container">
-        <h3 class="title">Our Gallery
-            <img src="<?=Url::to('@web/frontend/web/theme/img/logo2.png')?>" alt="" />
+        <h3 class="title"><?=Yii::t('main','Galleriya')?>
+            <img src="<?=Url::to('@web/frontend/web/img/logo.png')?>" alt="" />
         </h3>
         <div class="gallery-main">
             <div class="gallery-bott">

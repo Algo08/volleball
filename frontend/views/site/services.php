@@ -5,8 +5,8 @@ use yii\helpers\Url;
 ?>
 <div class="services" id="services">
     <div class="container">
-        <h3 class="title">Services
-            <img src="<?=Url::to('@web/frontend/web/theme/img/logo2.png')?>" alt="" />
+        <h3 class="title"><?=Yii::t('main','Xizmatlar')?>
+            <img src="<?=Url::to('@web/frontend/web/img/logo.png')?>" alt="" />
         </h3>
         <div class="col-md-6 left-services-agile">
             <div class="left-services-agile1">

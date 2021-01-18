@@ -9,6 +9,7 @@
  * @var \common\models\Trainer[] $trainer
  * @var \common\models\Contact $contact
  * @var \common\models\Slide[] $slides
+ * @var \common\models\Documents[] $documents
 */
 
 use yii\helpers\Url;
@@ -43,8 +44,8 @@ $this->title = 'Volleyball';
 <!-- news -->
 <div class="news-section" id="news">
     <div class="container">
-        <h3 class="title">Our Blog
-            <img src="<?=Url::to('@web/frontend/web/theme/img/logo2.png')?>" alt="" />
+        <h3 class="title"><?=Yii::t('main','Yangiliklar')?>
+            <img src="<?=Url::to('@web/frontend/web/img/logo.png')?>" alt="" />
         </h3>
         <div class="news-grids-w3l">
             <?php foreach ($news as $new):?>
@@ -52,7 +53,7 @@ $this->title = 'Volleyball';
             <?php endforeach;?>
         </div>
         <div class="col-sm-12 text-center">
-            <a class="all" href="<?=Url::to(['/news/news-page#news-blog'])?>">Barchasi</a>
+            <a class="all" href="<?=Url::to(['/news/news-page#news-blog'])?>"><?=Yii::t('main','Barchasi')?></a>
         </div>
     </div>
 </div>
@@ -66,8 +67,8 @@ $this->title = 'Volleyball';
 <!-- gallery -->
 <div class="gallery" id="gallery">
     <div class="container">
-        <h3 class="title">Our Gallery
-            <img src="<?=Url::to('@web/frontend/web/theme/img/logo2.png')?>" alt="" />
+        <h3 class="title"><?=Yii::t('main','Galleriya')?>
+            <img src="<?=Url::to('@web/frontend/web/img/logo.png')?>" alt="" />
         </h3>
         <div class="gallery-main">
             <div class="gallery-bott">
@@ -78,7 +79,7 @@ $this->title = 'Volleyball';
             </div>
             <hr>
             <div class="col-sm-12 text-center">
-                <a class="all" href="<?=Url::to(['/gallery'])?>">Barchasi</a>
+                <a class="all" href="<?=Url::to(['/gallery'])?>"><?=Yii::t('main','Barchasi')?></a>
             </div>
         </div>
     </div>
@@ -88,8 +89,8 @@ $this->title = 'Volleyball';
 <!-- services -->
 <div class="services" id="services">
     <div class="container">
-        <h3 class="title">Hujjatlar
-            <img src="<?=Url::to('@web/frontend/web/theme/img/logo2.png')?>" alt="" />
+        <h3 class="title"><?=Yii::t('main','Hujjatlar')?>
+            <img src="<?=Url::to('@web/frontend/web/img/logo.png')?>" alt="" />
         </h3>
         <div class="agileits_updates_grid_right">
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -99,7 +100,7 @@ $this->title = 'Volleyball';
             </div>
         </div>
         <div class="col-sm-12 text-center">
-            <a class="all" href="<?=Url::to(['/documents'])?>">Barchasi</a>
+            <a class="all" href="<?=Url::to(['/documents'])?>"><?=Yii::t('main','Barchasi')?></a>
         </div>
         <div class="clearfix"> </div>
     </div>
@@ -116,8 +117,8 @@ $this->title = 'Volleyball';
 <!-- gallery -->
 <div class="gallery" id="video">
     <div class="container">
-        <h3 class="title">Videos
-            <img src="<?=Url::to('@web/frontend/web/theme/img/logo2.png')?>" alt="" />
+        <h3 class="title"><?=Yii::t('main','Videolar')?>
+            <img src="<?=Url::to('@web/frontend/web/img/logo.png')?>" alt="" />
         </h3>
         <div class="video-main">
             <div class="video-bott">
@@ -128,7 +129,7 @@ $this->title = 'Volleyball';
             </div>
             <hr>
             <div class="col-sm-12 text-center">
-                <a class="all" href="<?=Url::to(['/video'])?>">Barchasi</a>
+                <a class="all" href="<?=Url::to(['/video'])?>"><?=Yii::t('main','Barchasi')?></a>
             </div>
         </div>
     </div>

@@ -13,7 +13,7 @@ $model = new \common\models\Message();
 <div class="contact" id="contact">
     <div class="container">
         <h3 class="title"><?=Yii::t('main','Biz bilan bog`laning')?>
-            <img src="<?=Url::to('@web/frontend/web/theme/img/logo2.png')?>" alt="" />
+            <img src="<?=Url::to('@web/frontend/web/img/logo.png')?>" alt="" />
         </h3>
         <div class="contact-grid-agiles-w3l">
             <div class="col-md-5 col-xs-5 contact-grid-agile">
@@ -88,7 +88,7 @@ $model = new \common\models\Message();
                     'captchaAction' => '/site/captcha'
                 ])->label(false)?>
 
-                <?= Html::submitButton('Send', ['class' => 'contact-grid-agile']) ?>
+                <?= Html::submitButton(Yii::t('main','Yuborish'), ['class' => 'contact-grid-agile']) ?>
 
                 <?php ActiveForm::end(); ?>
             </div>
