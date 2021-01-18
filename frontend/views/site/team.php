@@ -9,7 +9,7 @@ use yii\helpers\Url;
     <div class="overlay"></div>
     <div class="container" style="position: relative">
         <h3 class="title"><?=Yii::t('main','Murabbiylar')?>
-            <img src="<?=Url::to('@web/frontend/web/theme/img/logo2.png')?>" alt="" />
+            <img src="<?=Url::to('@web/frontend/web/img/logo.png')?>" alt="" />
         </h3>
         <div class="team-bottom">
             <?php foreach ($trainer as $coach):?>

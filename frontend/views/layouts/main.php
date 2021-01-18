@@ -53,8 +53,7 @@ AppAsset::register($this);
                     <div class="logo">
                         <h1>
                             <a href="<?=Url::home()?>">
-                                Volleyball
-                                <img class="logo-position" src="<?=Url::to('@web/frontend/web/theme/img/logo4.png')?>" alt="" />
+                                <img class="logo-position" src="<?=Url::to('@web/frontend/web/img/logo.png')?>" alt="" />
                             </a>
                         </h1>
                     </div>
@@ -117,7 +116,7 @@ AppAsset::register($this);
 <div class="footer">
     <div class="container">
         <div class="col-xs-4 agileinfo_footer_grid">
-            <h4>About Us</h4>
+            <h4><?=Yii::t('main','Biz haqimizda')?></h4>
             <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                 <span>Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
             </p>
@@ -140,7 +139,7 @@ AppAsset::register($this);
             </ul>
         </div>
         <div class="col-xs-4 agileinfo_footer_grid">
-            <h4>Ijtimoiy tarmoqlar</h4>
+            <h4><?=Yii::t('main','Ijtimoiy tarmoqlar')?></h4>
             <a class="col-xs-2" href="<?=$contact->facebook?>">
                 <i class="fa fa-facebook" style="font-size: 25px;"></i>
             </a>

@@ -50,6 +50,13 @@ return [
     'Murabbiylar'=>'Coaches',
     'Biz bilan bog`lanish' => 'Contact us',
     'Manzil'=>'Address',
+    'Barchasi'=>'All',
+    'Videolar'=>'Videos',
+    'Hujjatlar'=>'Documents',
+    'Biz bilan bog`laning'=>'Contact us',
+    'Galleriya'=>'Gallery',
+    'Ijtimoiy tarmoqlar'=>'Social networks',
+
 ];
 
 

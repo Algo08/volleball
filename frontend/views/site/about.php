@@ -6,8 +6,8 @@ use yii\helpers\Url;
 ?>
 <div class="about" id="about">
     <div class="container">
-        <h3 class="title">About Us
-            <img src="<?=Url::to('@web/frontend/web/theme/img/logo2.png')?>" alt="" />
+        <h3 class="title"><?=Yii::t('main','Biz haqimizda')?>
+            <img src="<?=Url::to('@web/frontend/web/img/logo.png')?>" alt="" />
         </h3>
         <div class="about-top">
             <div class="col-md-6 about-img-agile">
