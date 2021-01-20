@@ -1800,7 +1800,7 @@ button.contact-grid-agile:hover {
     }
     .logo-position {
         width: 9%;
-        margin-left: -22px;
+        margin-left: 0;
     }
     .navbar-default .navbar-nav>.active>a,
     .navbar-default .navbar-nav>.active>a:hover,
@@ -2084,7 +2084,7 @@ button.contact-grid-agile:hover {
     }
     .logo-position {
         width: 14%;
-        margin-left: -18px;
+        margin-left: 0;
     }
     .navbar-default .navbar-toggle {
         margin: 10px 10px;
