@@ -122,9 +122,7 @@ $this->title = 'Volleyball';
         </h3>
         <div class="video-main">
             <div class="video-bott">
-                <?php foreach ($videos as $video):?>
-                    <?= $this->render('/video/video',['video'=>$video])?>
-                <?php endforeach;?>
+                <?= $this->render('/video/foreach_list',['videos'=>$videos])?>
                 <div class="clearfix"> </div>
             </div>
             <hr>
@@ -177,7 +175,6 @@ $(document).ready(function () {
         $().UItoTop({
             easingType: 'easeOutQuart'
         });
-
     });
 JS;
 $this->registerJs( $script );
