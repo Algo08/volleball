@@ -520,3 +520,7 @@ label .glyphicon {
 #about{
     padding: 10vh 0;
 }
+.row {
+     margin-right: 0 !important;
+     margin-left: 0 !important;
+}
