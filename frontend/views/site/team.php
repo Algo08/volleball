@@ -8,9 +8,7 @@ use yii\helpers\Url;
 <div class="team  wthree" id="team">
     <div class="overlay"></div>
     <div class="container" style="position: relative">
-        <h3 class="title"><?=Yii::t('main','Murabbiylar')?>
-            <img src="<?=Url::to('@web/frontend/web/img/logo.png')?>" alt="" />
-        </h3>
+        <h3 class="title"><?=Yii::t('main','Trenerlar')?></h3>
         <div class="team-bottom">
             <?php foreach ($trainer as $coach):?>
             <div class="col-md-3 col-xs-3 team-grid">

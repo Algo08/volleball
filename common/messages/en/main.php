@@ -47,7 +47,7 @@ return [
     'Izohlar' => 'Comments',
     'Shaxsiy kabinet' => 'Personal cabinet',
     'Saqlash'=>'Save',
-    'Murabbiylar'=>'Coaches',
+    'Trenerlar'=>'Coaches',
     'Biz bilan bog`lanish' => 'Contact us',
     'Manzil'=>'Address',
     'Barchasi'=>'All',

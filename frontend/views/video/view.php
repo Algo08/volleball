@@ -23,9 +23,7 @@ $this->title = Yii::t('main', 'Video');
         </div>
     </div>
 </div><div class="container-fluid news-section container">
-    <h3 class="title">Video
-        <img src="<?=Url::to('@web/frontend/web/img/logo.png')?>" alt="" />
-    </h3>
+    <h3 class="title"><?=Yii::t('main','Videolar')?></h3>
     <div class="row m-0"  id="video">
         <?= $this->renderAjax('foreach_list',['videos'=>$videos])?>
     </div>

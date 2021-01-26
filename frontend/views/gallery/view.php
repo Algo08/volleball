@@ -25,9 +25,7 @@ $this->title = Yii::t('main', 'Gallery');
     </div>
 </div>
 <div class="container-fluid news-section container" id="gallery-blog">
-    <h3 class="title">Our Gallery
-        <img src="<?=Url::to('@web/frontend/web/theme/img/logo2.png')?>" alt="" />
-    </h3>
+    <h3 class="title"><?=Yii::t('main','Rasmlar')?></h3>
     <ul class="nav nav-tabs">
         <?php foreach ($sections as $section):?>
         <li><a data-toggle="tab" class="sections" href="javascript:0" data-key="<?=$section->id?>"><?=$section->name?></a></li>

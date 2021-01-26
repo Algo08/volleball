@@ -46,9 +46,7 @@ $this->title = 'Volleyball';
 <!-- news -->
 <div class="news-section" id="news">
     <div class="container">
-        <h3 class="title"><?=Yii::t('main','Yangiliklar')?>
-            <img src="<?=Url::to('@web/frontend/web/img/logo.png')?>" alt="" />
-        </h3>
+        <h3 class="title"><?=Yii::t('main','Yangiliklar')?></h3>
         <div class="news-grids-w3l">
             <?php foreach ($news as $new):?>
                 <?= $this->render('/news/news_card',['news'=>$new])?>
@@ -69,9 +67,7 @@ $this->title = 'Volleyball';
 <!-- gallery -->
 <div class="gallery" id="gallery">
     <div class="container">
-        <h3 class="title"><?=Yii::t('main','Galleriya')?>
-            <img src="<?=Url::to('@web/frontend/web/img/logo.png')?>" alt="" />
-        </h3>
+        <h3 class="title"><?=Yii::t('main','Galleriya')?></h3>
         <div class="gallery-main">
             <div class="gallery-bott">
                 <?php foreach ($pictures as $g):?>
@@ -91,9 +87,7 @@ $this->title = 'Volleyball';
 <!-- services -->
 <div class="services" id="services">
     <div class="container">
-        <h3 class="title"><?=Yii::t('main','Hujjatlar')?>
-            <img src="<?=Url::to('@web/frontend/web/img/logo.png')?>" alt="" />
-        </h3>
+        <h3 class="title"><?=Yii::t('main','Hujjatlar')?></h3>
         <div class="agileits_updates_grid_right">
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 <?php foreach ($documents as $document):?>
@@ -119,9 +113,7 @@ $this->title = 'Volleyball';
 <!-- videos -->
 <div class="gallery" id="video">
     <div class="container">
-        <h3 class="title"><?=Yii::t('main','Videolar')?>
-            <img src="<?=Url::to('@web/frontend/web/img/logo.png')?>" alt="" />
-        </h3>
+        <h3 class="title"><?=Yii::t('main','Videolar')?></h3>
         <div class="video-main">
             <div class="video-bott">
                 <?= $this->render('/video/foreach_list',['videos'=>$videos])?>

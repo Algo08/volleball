@@ -12,15 +12,10 @@ $model = new \common\models\Message();
 ?>
 <div class="contact" id="contact">
     <div class="container">
-        <h3 class="title"><?=Yii::t('main','Biz bilan bog`laning')?>
-            <img src="<?=Url::to('@web/frontend/web/img/logo.png')?>" alt="" />
-        </h3>
+        <h3 class="title"><?=Yii::t('main','Biz bilan bog`laning')?></h3>
         <div class="contact-grid-agiles-w3l">
             <div class="col-md-5 col-xs-5 contact-grid-agile">
-                <div class="contact-right1">
-                    <img src="<?=Url::to('@web/frontend/web/theme/img/mail36.jpg')?>" alt="" />
-                </div>
-                <div class="contact-right2">
+                <div class="contact-right2 m-0">
                     <div class="call ">
                         <div class="col-xs-4 contact-grdr-w3l">
                             <h3>Tel :</h3>

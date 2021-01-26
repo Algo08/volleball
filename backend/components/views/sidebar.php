@@ -93,7 +93,7 @@
     <li class="nav-item">
         <a class="nav-link" href="<?=\yii\helpers\Url::to('@web/trainer')?>">
             <i class="fas fa-people-arrows"></i>
-            <span>Murabbiylar</span></a>
+            <span>Trenerlar</span></a>
     </li>
 
     <li class="nav-item">

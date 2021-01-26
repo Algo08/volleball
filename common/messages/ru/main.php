@@ -42,7 +42,7 @@ return [
     'Izohlar' => 'Комментарии',
     'Shaxsiy kabinet' => 'Личный кабинет',
     'Saqlash'=>'Сохранить',
-    'Murabbiylar'=>'Тренеры',
+    'Trenerlar'=>'Тренеры',
     'Biz bilan bog`lanish' => 'Связаться с нами',
     'Manzil'=>'Адрес',
     'Barchasi'=>'Все',
