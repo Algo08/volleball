@@ -7,7 +7,7 @@
 
 use yii\helpers\Url;
 
-$this->title = Yii::t('main', 'Gallery');
+$this->title = Yii::t('main', 'Rasmlar');
 
 ?>
 <!-- banner-text -->

@@ -6,7 +6,7 @@
 
 use yii\helpers\Url;
 
-$this->title = Yii::t('main', 'Video');
+$this->title = Yii::t('main', 'Videolar');
 
 ?>
 <!-- banner-text -->
