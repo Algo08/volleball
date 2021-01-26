@@ -10,6 +10,7 @@ return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'homeUrl'=>'/volleybol',
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'socialShare' => [
@@ -36,7 +37,7 @@ return [
             ],
         ],
         'request' => [
-            'baseUrl'=>'',
+            'baseUrl'=>'/volleybol',
             'csrfParam' => '_csrf-frontend',
         ],
         'user' => [

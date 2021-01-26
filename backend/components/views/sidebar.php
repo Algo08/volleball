@@ -57,11 +57,20 @@
             <span>Videolar</span></a>
     </li>
 
+    <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link" href="<?=\yii\helpers\Url::to('@web/gallery')?>">
-            <i class="far fa-fw fa-images"></i>
-            <span>Rasmlar</span></a>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-question"></i>
+            <span>Rasmlar</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="<?=\yii\helpers\Url::to('@web/gallery-section')?>">Bo`limlar</a>
+                <a class="collapse-item" href="<?=\yii\helpers\Url::to('@web/gallery')?>">Rasmlar</a>
+            </div>
+        </div>
     </li>
+
 
     <li class="nav-item">
         <a class="nav-link" href="<?=\yii\helpers\Url::to('@web/documents')?>">

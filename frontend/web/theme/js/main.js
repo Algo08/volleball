@@ -26,17 +26,26 @@ var siteCarousel = function () {
         var owlMain = $('.owl-main-slider').owlCarousel({
             loop: true,
             autoHeight: true,
-            margin: 50,
+            margin: 0,
             autoplay: true,
             smartSpeed: 1000,
             nav: false,
-            dots: false,
+            dots: true,
+            dotClass: 'fa fa-circle-thin',
             responsive:{
                 0:{
                     items:1
                 }
             }
         });
+        $('.owl-main-slider').click(function(e) {
+            e.preventDefault();
+            owl1.trigger('next.owl.carousel');
+        })
+        $('.owl-main-slider').click(function(e) {
+            e.preventDefault();
+            owl1.trigger('prev.owl.carousel');
+        })
 
     }
 };

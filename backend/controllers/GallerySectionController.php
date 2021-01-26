@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Slide;
+use common\models\GallerySection;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * SlideController implements the CRUD actions for Slide model.
+ * GallerySectionController implements the CRUD actions for GallerySection model.
  */
-class SlideController extends Controller
+class GallerySectionController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,13 +30,13 @@ class SlideController extends Controller
     }
 
     /**
-     * Lists all Slide models.
+     * Lists all GallerySection models.
      * @return mixed
      */
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Slide::find(),
+            'query' => GallerySection::find(),
         ]);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class SlideController extends Controller
     }
 
     /**
-     * Displays a single Slide model.
+     * Displays a single GallerySection model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,22 +58,16 @@ class SlideController extends Controller
     }
 
     /**
-     * Creates a new Slide model.
+     * Creates a new GallerySection model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Slide();
+        $model = new GallerySection();
 
-        if ($model->load(Yii::$app->request->post())) {
-            $model->imageFile = \fv\yii\croppie\UploadedFile::getInstance($model, 'imageFile');
-
-            if ($model->upload()) {
-                $model->imageFile = null;
-            }
-            $model->save();
-            return $this->redirect(['index']);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
@@ -82,7 +76,7 @@ class SlideController extends Controller
     }
 
     /**
-     * Updates an existing Slide model.
+     * Updates an existing GallerySection model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -92,14 +86,8 @@ class SlideController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post())) {
-            $model->imageFile = \fv\yii\croppie\UploadedFile::getInstance($model, 'imageFile');
-
-            if ($model->upload()) {
-                $model->imageFile = null;
-            }
-            $model->save();
-            return $this->redirect(['index']);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
@@ -108,7 +96,7 @@ class SlideController extends Controller
     }
 
     /**
-     * Deletes an existing Slide model.
+     * Deletes an existing GallerySection model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -122,15 +110,15 @@ class SlideController extends Controller
     }
 
     /**
-     * Finds the Slide model based on its primary key value.
+     * Finds the GallerySection model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Slide the loaded model
+     * @return GallerySection the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Slide::findOne($id)) !== null) {
+        if (($model = GallerySection::findOne($id)) !== null) {
             return $model;
         }
 

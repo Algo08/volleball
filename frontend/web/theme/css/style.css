@@ -240,9 +240,9 @@ background-color: rgba(0,0,0,0) !important;
 /*-- banner --*/
 
 .banner-text {
-    position: relative;
+    position: relative !important;
     min-height: 726px;
-    background-size: cover;
+    background-size: cover !important;
 }
 .overlay{
     content: "";
@@ -2568,6 +2568,34 @@ button.contact-grid-agile:hover {
         padding: .5em;
         font-size: .8em;
     }
+}
+
+.owl-carousel{
+    touch-action: none;
+}
+
+.owl-nav{
+    text-align: center;
+    margin-top: 15px;
+}
+.owl-nav .owl-prev, .owl-nav .owl-next{
+    display: inline;
+    margin: 25px;
+    color: #374050;
+    font-size: 15px;
+}
+.owl-dots{
+    position: absolute;
+    bottom: 8px;
+    left: calc(51% - 45.7px);
+}
+.owl-dots .fa-circle-thin{
+    color: white;
+    cursor: pointer;
+    margin: 0 5px;
+}
+.owl-dots .fa-circle-thin.active:before{
+    content: '\f111';
 }
 
 /*--//responsive--*/

@@ -8,6 +8,7 @@ use Yii;
  * This is the model class for table "gallery".
  *
  * @property int $id
+ * @property int $section
  * @property string $name
  * @property string $name_uz
  * @property string|null $name_ru
@@ -32,7 +33,8 @@ class Gallery extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name_uz'], 'required'],
+            [['name_uz','section'], 'required'],
+            [['section'], 'integer'],
             [['name_uz', 'name_ru', 'name_en'], 'string', 'max' => 100],
             [['image_location'], 'string', 'max' => 200],
         ];
@@ -45,6 +47,7 @@ class Gallery extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'section' => 'Bo`lim',
             'name' => 'Name',
             'name_uz' => 'Name Uz',
             'name_ru' => 'Name Ru',
@@ -85,5 +88,9 @@ class Gallery extends \yii\db\ActiveRecord
         } else {
             return false;
         }
+    }
+
+    public function getSECTION(){
+        return $this->hasOne(GallerySection::className(), ['id' => 'section']);
     }
 }

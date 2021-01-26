@@ -1,6 +1,7 @@
 <?php
 /**
  * @var \common\models\Gallery[] $gallery
+ * @var \common\models\GallerySection[] $sections
  * @var integer $key
  */
 
@@ -22,20 +23,30 @@ $this->title = Yii::t('main', 'Gallery');
             </div>
         </div>
     </div>
-</div><div class="container-fluid news-section container" id="gallery-blog">
+</div>
+<div class="container-fluid news-section container" id="gallery-blog">
     <h3 class="title">Our Gallery
         <img src="<?=Url::to('@web/frontend/web/theme/img/logo2.png')?>" alt="" />
     </h3>
-    <div class="row m-0"  id="gallery">
-        <?= $this->render('foreach_list',['gallery'=>$gallery])?>
+    <ul class="nav nav-tabs">
+        <?php foreach ($sections as $section):?>
+        <li><a data-toggle="tab" class="sections" href="javascript:0" data-key="<?=$section->id?>"><?=$section->name?></a></li>
+        <?php endforeach;?>
+    </ul>
+
+    <div class="tab-content">
+        <div class="row m-0"  id="gallery">
+            <?= $this->render('foreach_list',['gallery'=>$gallery])?>
+        </div>
+        <h2 class="text-center page-header">
+            <small class="other font-weight-light btn btn-lg" data-key="" data-value="<?=$key?>"><?= Yii::t('main','Yana rasmlar')?></small>
+            <i class="fa fa-spinner" id="loading" style="opacity: 0;"></i>
+        </h2>
     </div>
-    <h2 class="text-center page-header">
-        <small class="other font-weight-light btn btn-lg" data-value="<?=$key?>"><?= Yii::t('main','Yana rasmlar')?></small>
-        <i class="fa fa-spinner" id="loading" style="opacity: 0;"></i>
-    </h2>
 </div>
 <?php
 $urlGallery = \yii\helpers\Url::to(['other-photos']);
+$urlSection = \yii\helpers\Url::to(['section']);
 $hammasi = Yii::t('main', 'Hammasi shular');
 $script = <<< JS
 
@@ -45,23 +56,42 @@ $(document).ajaxStart(function(){
     $('#loading').css('opacity', '0');
  });
 var btnLast = $('.other.font-weight-light');
+var sections = $('.sections');
 var galleryDiv = $('#gallery');
-var keyNumber = btnLast.data('value');
         btnLast.on('click',function(event) {
             event.preventDefault();
+            var keySection = $(this).attr('data-key');
+            var keyNumber = $(this).attr('data-value');
             $.ajax({
                 url: '$urlGallery',
                 data:{
                     key: keyNumber,
+                    section: keySection,
                 }, 
                 success: function (data) {
                     if(data == 0){    
                         btnLast.html('$hammasi'); 
                     }
                     else {
-                        galleryDiv.html(galleryDiv.html()+data);
-                        keyNumber += 3;
+                        galleryDiv.append(data);
+                        btnLast.attr('data-value',parseInt(keyNumber)+3);
                     }   
+                 }
+            });
+        });
+        
+        sections.on('click',function(event) {
+            event.preventDefault();
+            var keySection = $(this).data('key'); 
+            $.ajax({
+                url: '$urlSection',
+                data:{
+                    key: keySection,
+                }, 
+                success: function (data) {
+                   galleryDiv.html(data);
+                   btnLast.attr('data-value',6);
+                   btnLast.attr('data-key',keySection);
                  }
             });
         });

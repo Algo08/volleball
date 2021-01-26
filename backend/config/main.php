@@ -10,13 +10,13 @@ return [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
-    'homeUrl' => '/admin',
+    'homeUrl' => '/volleybol/admin',
     'bootstrap' => ['log'],
     'modules' => [],
     'components' => [
 
         'request' => [
-            'baseUrl' => '/admin',
+            'baseUrl' => '/volleybol/admin',
             'csrfParam' => '_csrf-backend',
         ],
         'user' => [

@@ -27,6 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'name_uz',
             'name_ru',
             'name_en',
+            'sECTION.name_uz',
             [
                 'attribute' => 'image',
                 'format' => 'html',

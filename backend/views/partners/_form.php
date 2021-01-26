@@ -18,8 +18,21 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'sequence')->textInput() ?>
 
-    <?= $form->field($model, 'show')->textInput() ?>
-
+    <?= $form->field($model, 'show')->radioList(
+        [
+            '0' => 'Aktivmas',
+            '1' => 'Aktiv'
+        ],
+        [
+            'item' => function ($index, $label, $name, $checked, $value) {
+                $class_btn = 'btn-info'; // Style for disable
+                return
+                    '<label class="btn '. $class_btn.'">' . Html::radio($name, $checked, ['value' => $value]) . $label . '</label>';
+            },
+            'class' => 'btn-group', "data-toggle"=>"buttons", // Bootstrap class for Button Group
+        ]
+    )->label(false);
+    ?>
 
     <?=$form->field($model, 'imageFile')
         ->widget(\fv\yii\croppie\Widget::class,

@@ -23,21 +23,23 @@ $this->title = 'Volleyball';
 <body>
 
 <!-- banner-text -->
-<div class="banner-text" style="background: url(<?=Url::to('@web/theme/img/b1.jpg')?>) no-repeat bottom;">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="slider">
-            <div class="callbacks_container">
-                <div class="owl-main-slider owl-carousel">
-                    <?php foreach ($slides as $slide):?>
-                        <div class="item p-5 banner-w3lstext">
-                            <h3><?=$slide->text_head?></h3>
-                            <p><?=$slide->text_part?></p>
+<div class="w-100">
+    <div class="owl-main-slider owl-carousel m-0">
+        <?php foreach ($slides as $slide):?>
+            <div class="banner-text" style="background: url(<?=Url::to('@web'.$slide->image_location)?>) no-repeat bottom;">
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="slider">
+                        <div class="callbacks_container">
+                            <div class="item p-5 banner-w3lstext">
+                                <h3><?=$slide->text_head?></h3>
+                                <p><?=$slide->text_part?></p>
+                            </div>
                         </div>
-                    <?php endforeach;?>
+                    </div>
                 </div>
             </div>
-        </div>
+        <?php endforeach;?>
     </div>
 </div>
 
@@ -114,7 +116,7 @@ $this->title = 'Volleyball';
 
 
 
-<!-- gallery -->
+<!-- videos -->
 <div class="gallery" id="video">
     <div class="container">
         <h3 class="title"><?=Yii::t('main','Videolar')?>

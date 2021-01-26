@@ -26,8 +26,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'text_part_uz',
             //'text_part_ru',
             //'text_part_en',
-            //'video',
-
+            [
+                'attribute' => 'image',
+                'format' => 'html',
+                'contentOptions'=>['class'=> 'text-center', 'style'=>'width: 220px'],
+                'value' => function ($data) {
+                    return Html::img(Yii::getAlias('@web').'/..'. $data['image_location'],
+                        ['width' => '100px', 'style'=>['background-color'=>'#393939']]);
+                },
+            ],
             ['class' => 'yii\grid\ActionColumn',
                 'contentOptions'=>['class'=> 'text-center', 'style'=>'width: 160px'],
                 'buttons'=>[

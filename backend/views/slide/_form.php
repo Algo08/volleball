@@ -37,8 +37,30 @@ use yii\widgets\ActiveForm;
         </div>
     </div>
 
-    <?= $form->field($model, 'video')->textInput(['maxlength' => true]) ?>
-
+    <div class="text-center mt-3">
+        <?=$form->field($model, 'imageFile')
+            ->widget(\fv\yii\croppie\Widget::class,
+                [
+                    'format' => 'jpeg',
+                    'clientOptions' => [
+                        'viewport'=>[
+                            'width'=>960,
+                            'height' => 540,
+                        ],
+                        'boundary'=>[
+                            'width'=>960,
+                            'height' => 540
+                        ],
+                        'enableExif'=>'true',
+                    ],
+                    'rotateCcwLabel' => '<i class="icon-undo"></i> 90&deg',
+                    'rotateCwLabel' => '<i class="icon-rotate-right"></i> 90&deg',
+                    'uploadButtonOptions' => [
+                        'value'=>'test',
+                    ],
+                ])
+            ->label(false);?>
+    </div>
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>

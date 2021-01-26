@@ -524,3 +524,9 @@ label .glyphicon {
      margin-right: 0 !important;
      margin-left: 0 !important;
 }
+.nav.nav-tabs{
+    margin-bottom: 20px;
+}
+a.sections{
+    color: black;
+}

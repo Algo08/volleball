@@ -1,5 +1,6 @@
 <?php
 
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -20,6 +21,9 @@ use yii\widgets\ActiveForm;
         <li class="nav-item" role="presentation">
             <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">En</a>
         </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="rasm-tab" data-toggle="tab" href="#rasm" role="tab" aria-controls="rasm" aria-selected="false">rasm</a>
+        </li>
     </ul>
     <?php $form = ActiveForm::begin(); ?>
 
@@ -33,32 +37,36 @@ use yii\widgets\ActiveForm;
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
             <?= $form->field($model, 'name_en')->textInput(['maxlength' => true]) ?>
         </div>
+        <div class="tab-pane fade" id="rasm" role="tabpanel" aria-labelledby="rasm-tab">
+            <div class="text-center mt-3">
+                <?=$form->field($model, 'imageFile')
+                    ->widget(\fv\yii\croppie\Widget::class,
+                        [
+                            'format' => 'jpeg',
+                            'clientOptions' => [
+                                'viewport'=>[
+                                    'width'=>1280,
+                                    'height' => 720,
+                                ],
+                                'boundary'=>[
+                                    'width'=>1300,
+                                    'height' => 800
+                                ],
+                                'enableExif'=>'true',
+                            ],
+                            'rotateCcwLabel' => '<i class="icon-undo"></i> 90&deg',
+                            'rotateCwLabel' => '<i class="icon-rotate-right"></i> 90&deg',
+                            'uploadButtonOptions' => [
+                                'value'=>'test',
+                            ],
+                        ])
+                    ->label(false);?>
+            </div>
+        </div>
     </div>
 
-    <div class="text-center mt-3">
-        <?=$form->field($model, 'imageFile')
-            ->widget(\fv\yii\croppie\Widget::class,
-                [
-                    'format' => 'jpeg',
-                    'clientOptions' => [
-                        'viewport'=>[
-                            'width'=>1280,
-                            'height' => 720,
-                        ],
-                        'boundary'=>[
-                            'width'=>1300,
-                            'height' => 800
-                        ],
-                        'enableExif'=>'true',
-                    ],
-                    'rotateCcwLabel' => '<i class="icon-undo"></i> 90&deg',
-                    'rotateCwLabel' => '<i class="icon-rotate-right"></i> 90&deg',
-                    'uploadButtonOptions' => [
-                        'value'=>'test',
-                    ],
-                ])
-            ->label(false);?>
-    </div>
+    <?= $form->field($model, 'section')
+        ->dropDownList(ArrayHelper::map(\common\models\GallerySection::find()->all(), 'id', 'name_uz')) ?>
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>

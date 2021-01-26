@@ -16,10 +16,12 @@ use Yii;
  * @property string $text_part_uz
  * @property string|null $text_part_ru
  * @property string|null $text_part_en
- * @property string|null $video
+ * @property string|null $image_location
  */
 class Slide extends \yii\db\ActiveRecord
 {
+    public $imageFile;
+
     /**
      * {@inheritdoc}
      */
@@ -36,7 +38,7 @@ class Slide extends \yii\db\ActiveRecord
         return [
             [['text_head_uz', 'text_part_uz'], 'required'],
             [['text_head_uz', 'text_head_ru', 'text_head_en', 'text_part_uz', 'text_part_ru', 'text_part_en'], 'string', 'max' => 100],
-            [['video'], 'string', 'max' => 200],
+            [['image_location'], 'string', 'max' => 200],
         ];
     }
 
@@ -53,7 +55,7 @@ class Slide extends \yii\db\ActiveRecord
             'text_part_uz' => 'Text Part Uz',
             'text_part_ru' => 'Text Part Ru',
             'text_part_en' => 'Text Part En',
-            'video' => 'Video',
+            'image_location' => 'Image location',
         ];
     }
 
@@ -77,5 +79,29 @@ class Slide extends \yii\db\ActiveRecord
             default   : return $this->text_part_uz;break;
         }
     }
+
+    /**
+     * @return bool
+     */
+    public function upload()
+    {
+        if ($this->imageFile) {
+            $this->imageFile->saveAs('../../frontend/web/img/pictures/'. $this->imageFile->baseName . '.' . $this->imageFile->extension);
+
+            \yii\imagine\Image::crop(Yii::getAlias('@webroot') .'/../../frontend/web/img/pictures/'. $this->imageFile->baseName . '.' . $this->imageFile->extension,960,540)
+                ->save(Yii::getAlias('../../frontend/web/img/pictures/'. $this->imageFile->baseName . '1.' . $this->imageFile->extension), ['quality' => 90]);
+
+            unlink(Yii::getAlias('@webroot') .'/../../frontend/web/img/pictures/'. $this->imageFile->baseName . '.' . $this->imageFile->extension);
+
+            if ($this->image_location && is_file(Yii::getAlias('@webroot').'/../..'.$this->image_location)){
+                unlink(Yii::getAlias('@webroot').'/../..'.$this->image_location);
+            }
+            $this->image_location = '/frontend/web/img/pictures/'. $this->imageFile->baseName . '1.' . $this->imageFile->extension;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
 }
