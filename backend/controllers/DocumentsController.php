@@ -95,9 +95,11 @@ class DocumentsController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post())) {
+            $model->file = UploadedFile::getInstances($model, 'file');
             if ($model->file) {
-                $model->file = UploadedFile::getInstances($model, 'file');
-
+                if ($model->location_doc && is_file(Yii::getAlias('@webroot').'/../..'.$model->location_doc)){
+                    unlink(Yii::getAlias('@webroot').'/../..'.$model->location_doc);
+                }
                 $model->file[0]->saveAs('../../frontend/web/uploads/' . $model->file[0]->baseName . '.' . $model->file[0]->extension);
                 $model->location_doc = '/frontend/web/uploads/' . $model->file[0]->baseName . '.' . $model->file[0]->extension;
             }
